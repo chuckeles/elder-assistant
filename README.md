@@ -4,6 +4,8 @@ This is a school project – website for elderly people. It's a prototype of the
 
 ## How to make changes
 
+*Don't push directly to `master`, others will hate you.*
+
 1. Create a separate branch for your changes.
 2. Make and commit your changes.
 3. Push the branch.

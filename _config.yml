@@ -1,0 +1,10 @@
+# Jekyll configuration file
+
+# default options
+defaults:
+    -
+        # for all files in the project
+        scope:
+            path: ''
+        values:
+            layout: ''

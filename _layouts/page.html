@@ -1,16 +1,42 @@
 <!-- layout for every page in the project -->
 <!-- the contents are placed in {{ content }} -->
+
 <!doctype html>
 <html lang="sk">
     <head>
+        <!-- meta data -->
         <title>{{ page.title }}</title>
+        <base href="/">
 
         <meta charset="UTF-8">
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <!-- css -->
+        <link rel="stylesheet" href="css/bootstrap.css">
     </head>
     <body>
-        {{ content }}
+        <div class="container">
+            <div class="row">
+                <div class="col-xs">
+                    <h1>{{ page.title }}</h1>
+                </div>
+            </div>
+
+            {{ content }}
+
+            <div class="row">
+                <div class="col-xs">
+                    <nav class="nav-inline">
+                        <a href="#" class="nav-link">Pomoc</a>
+                        <a href="#" class="nav-link">O nás</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- js -->
+        <script src="js/bootstrap.js"></script>
     </body>
 </html>

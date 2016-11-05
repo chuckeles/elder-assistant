@@ -1,10 +1,16 @@
 # Jekyll configuration file
 
-# default options
+# default options for pages
 defaults:
     -
-        # for all files in the project
+        # for all pages in the project
         scope:
             path: ''
         values:
-            layout: ''
+            layout: 'page'
+
+# Jekyll plugins
+gems:
+    - jekyll-sass-converter
+    - jekyll-seo-tag
+

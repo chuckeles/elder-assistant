@@ -20,4 +20,5 @@ There's a handful of technologies and libraries used in this project.
 - [Jekyll](http://jekyllrb.com/) - used to generate the website and host it here on Github
 - [Bootstrap](https://v4-alpha.getbootstrap.com/) - style framework with a lot of components and a layout system
 - [Font awesome](http://fontawesome.io/) - icons
-- [jQuery](http://jquery.com/) - scripting library, make it easier to do common tasks, nicer Javascript
+- [jQuery](http://jquery.com/) - scripting library, makes it easier to do common tasks, nicer Javascript
+- [SASS](http://sass-lang.com/guide) - better CSS with nesting and variables

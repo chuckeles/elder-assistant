@@ -10,9 +10,14 @@ This is a school project – website for elderly people. It's a prototype of the
 2. Make and commit your changes.
 3. Push the branch.
 4. Create a new pull request here on Github.
-5. Wait for someone to approve (maybe disable...).
+5. Wait for someone to approve.
 6. Merge the pull request.
 
 ## Technologies
 
-Let's keep this simple and frontend-only. The site will be hosted right here on Github. We'll use simple HTML, CSS, and JS. Jekyll will also help to process the files, check its docs.
+There's a handful of technologies and libraries used in this project.
+
+- [Jekyll](http://jekyllrb.com/) - used to generate the website and host it here on Github
+- [Bootstrap](https://v4-alpha.getbootstrap.com/) - style framework with a lot of components and a layout system
+- [Font awesome](http://fontawesome.io/) - icons
+- [jQuery](http://jquery.com/) - scripting library, make it easier to do common tasks, nicer Javascript

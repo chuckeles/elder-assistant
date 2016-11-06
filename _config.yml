@@ -9,6 +9,7 @@ defaults:
         values:
             title: 'Asistent pre dôchodcov'
             layout: 'page'
+            homeLink: true
 
 # Jekyll plugins
 gems:

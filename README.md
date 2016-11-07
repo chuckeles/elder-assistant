@@ -2,6 +2,8 @@
 
 This is a school project – website for elderly people. It's a prototype of the website. The texts are in Slovak language.
 
+The live version is hosted here on Github using URL [chuckeles.github.io/elder-assistant](https://chuckeles.github.io/elder-assistant/).
+
 ## How to make changes
 
 *Don't push directly to `master`, others will hate you.*

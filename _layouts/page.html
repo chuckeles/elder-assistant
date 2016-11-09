@@ -26,30 +26,28 @@
             </div>
 
             {{ content }}
-
-            <div class="row">
-                <div class="col-xs">
-                    <nav class="navbar navbar-fixed-bottom navbar-light bg-faded bottom-nav">
-                        <a href="#" class="nav-link" data-toggle="popover" data-placement="top" data-trigger="focus"
-                           title="{{ page.help.title }}"
-                           data-content="{{ page.help.content }}">
-                            <i class="fa fa-question-circle"></i>
-                            Pomoc
-                        </a>
-                        <a href="{{ site.github.url }}/about.html" class="nav-link">
-                            <i class="fa fa-info-circle"></i>
-                            O nás
-                        </a>
-                        {% if page.homeLink %}
-                        <a href="{{ site.github.url }}/index.html" class="nav-link">
-                            <i class="fa fa-home"></i>
-                            Domovská obrazovka
-                        </a>
-                        {% endif %}
-                    </nav>
-                </div>
-            </div>
         </div>
+
+        <nav class="navbar navbar-fixed-bottom navbar-light bg-faded bottom-nav">
+            <div class="nav navbar-nav">
+                <a href="#" class="nav-item nav-link" data-toggle="popover" data-placement="top" data-trigger="focus"
+                   title="{{ page.help.title }}"
+                   data-content="{{ page.help.content }}">
+                    <i class="fa fa-question-circle"></i>
+                    Pomoc
+                </a>
+                <a href="{{ site.github.url }}/about.html" class="nav-item nav-link">
+                    <i class="fa fa-info-circle"></i>
+                    O nás
+                </a>
+                {% if page.homeLink %}
+                <a href="{{ site.github.url }}/index.html" class="nav-item nav-link">
+                    <i class="fa fa-home"></i>
+                    Domovská obrazovka
+                </a>
+                {% endif %}
+            </div>
+        </nav>
 
         <!-- js -->
         <script src="{{ site.github.url }}/js/jquery.js"></script>

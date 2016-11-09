@@ -1,6 +1,10 @@
 ---
 ---
 
+body {
+    padding-bottom: 50px;
+}
+
 .page-title {
     text-align: center;
     margin: 60px 0;
@@ -13,7 +17,11 @@
 
 .bottom-nav {
     text-align: center;
-    margin-top: 40px;
+
+    .navbar-nav .nav-item {
+        float: none;
+        display: inline-block;
+    }
 }
 
 .btn-huge {

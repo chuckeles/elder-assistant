@@ -1,5 +1,7 @@
 $('[data-toggle="tooltip"]').tooltip();
-$('[data-toggle="popover"]').popover();
+$('[data-toggle="popover"]').popover().click(function (e) {
+    e.preventDefault();
+});
 
 $('#text-resize-popover').on('shown.bs.popover', function () {
     $('#text-plus').click(function () {

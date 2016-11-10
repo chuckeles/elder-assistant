@@ -24,3 +24,19 @@ There's a handful of technologies and libraries used in this project.
 - [Font awesome](http://fontawesome.io/) - icons
 - [jQuery](http://jquery.com/) - scripting library, makes it easier to do common tasks, nicer Javascript
 - [SASS](http://sass-lang.com/guide) - better CSS with nesting and variables
+
+## Installation and preparation
+
+In order to develop the website, you need to install Jekyll locally. It's worth it, because it allows you to see your changes on the website.
+
+1. [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+2. Install Jekyll and its dependencies - `gem install bundler jekyll jekyll-seo-tag`
+3. Clone the repository - `git clone git@github.com:chuckeles/elder-assistant.git`
+4. Go into the repo directory - `cd elder-assistant`
+5. Start Jekyll - `jekyll serve`
+
+*NOTE: If you get an error about a certificate when installing the Jekyll gem (on Windows), check [this Startoverflow question](http://stackoverflow.com/questions/27573248/certificate-verify-failed-in-gem-install-foundation). The first answer's solution worked for us.*
+
+You can leave Jekyll running, it will update the website as you change it and serve it on http://localhost:4000/.
+
+Also, get yourself at least a little familiar with [Bootstrap components](https://v4-alpha.getbootstrap.com/components/buttons/). There's a lot of them that we can use in the project.

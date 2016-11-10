@@ -21,39 +21,37 @@ help:
         <div class="col-xs">
             <h2>Vyhľadávanie</h2>
             <div class="input-group input-group-lg" data-toggle="tooltip"
-                 title="Zadajte názov potraviny a stlačte tlačidlo Hľadať.">
+                 title="Zadajte názov potraviny. List potravín je automaticky filtrovaný.">
                 <label class="input-group-addon" for="groceries-search-input">
-                    Potraviny
+                    <i class="fa fa-search"></i>
+                    Prehľadávať potraviny
                 </label>
-                <input type="text" class="form-control" id="groceries-search-input">
-                <span class="input-group-btn">
-                    <button class="btn btn-secondary">
-                        <i class="fa fa-search"></i>
-                        Hľadať
-                    </button>
-                </span>
+                <input type="text" class="form-control" id="groceries-search-input" placeholder="Jablko"
+                       v-model="filter">
             </div>
         </div>
     </div>
-
     <div class="row gap-bottom">
         <div class="col-xs">
-            <h2>Košík</h2>
             <table class="table">
-                <thead class="thread-default">
+                <thead class="thead-default">
                     <tr>
                         <th>Názov</th>
                         <th>Cena</th>
+                        <th>Pridať do košíka</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% raw %}
-                    <tr v-for="product in shoppingCart">
+                    <tr v-for="product in filteredShop">
                         <td>{{ product.name }}</td>
+                        <td>{{ product.price }}&euro;</td>
                         <td>
-                            <input type="number" v-model="product.amount" min="1">
+                            <button class="btn btn-secondary btn-sm" v-on:click="addToCart(product)">
+                                <i class="fa fa-shopping-cart"></i>
+                                Pridať
+                            </button>
                         </td>
-                        <td>{{ product.price * product.amount }}&euro;</td>
                     </tr>
                     {% endraw %}
                 </tbody>
@@ -61,14 +59,70 @@ help:
         </div>
     </div>
 
+    <div class="row gap-bottom">
+        <div class="col-xs">
+            <h2>Košík</h2>
+            <table class="table">
+                {% raw %}
+                <thead class="thead-default">
+                    <tr>
+                        <th>Názov</th>
+                        <th>Množstvo</th>
+                        <th>Cena</th>
+                        <th>Odstrániť z košíka</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-if="shoppingCart.length === 0">
+                        <td colspan="4" class="text-xs-center">
+                            <em>Váš košík je prázdny.</em>
+                        </td>
+                    </tr>
+                    <tr v-for="product in shoppingCart">
+                        <td>{{ product.name }}</td>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">&times;</span>
+                                <input class="form-control short-input" type="number" v-model="product.amount" min="1">
+                            </div>
+                        </td>
+                        <td>{{ product.price * product.amount | price }}&euro;</td>
+                        <td>
+                            <button class="btn btn-secondary btn-sm" v-on:click="removeFromCart(product)">
+                                <i class="fa fa-trash"></i>
+                                Odstrániť
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot v-if="shoppingCart.length > 0">
+                    <tr>
+                        <td colspan="2">Celková cena</td>
+                        <td>{{ totalPrice | price }}&euro;</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+                {% endraw %}
+            </table>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-xs text-xs-center">
             <div class="btn-group btn-group-lg">
-                <a href="" class="btn btn-primary" id="groceries-submit-button" data-toggle="tooltip"
-                   title="Týmto tlačidlom potvrdíte, že máte v košíku všetky potraviny, ktoré si chcete objednať ku vám domov.">
-                    <i class="fa fa-check"></i>
-                    Potvrdiť
+                {% raw %}
+                <a href="#groceries-search-input" class="btn btn-primary disabled"
+                   v-if="shoppingCart.length === 0">
+                    <i class="fa fa-shopping-cart"></i>
+                    Váš košík je prázdny
                 </a>
+                <a href="#" class="btn btn-primary" id="groceries-submit-button" data-toggle="tooltip"
+                   title="Týmto tlačidlom potvrdíte, že máte v košíku všetky potraviny, ktoré si chcete objednať ku vám domov."
+                   v-show="shoppingCart.length > 0">
+                    <i class="fa fa-check"></i>
+                    Potvrdiť a objednať za {{ totalPrice | price }}&euro;
+                </a>
+                {% endraw %}
                 <a href="{{ site.github.url }}/index.html" class="btn btn-secondary" data-toggle="tooltip"
                    title="Týmto tlačidlom sa vrátite späť na domovskú obrazovku.">
                     <i class="fa fa-times"></i>

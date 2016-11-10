@@ -6,7 +6,7 @@ The live version is hosted here on Github using URL [chuckeles.github.io/elder-a
 
 ## How to make changes
 
-*Don't push directly to `master`, others will hate you.*
+> Don't push directly to `master`, others will hate you.
 
 1. Create a separate branch for your changes.
 2. Make and commit your changes.

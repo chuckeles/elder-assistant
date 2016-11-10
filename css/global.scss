@@ -2,7 +2,13 @@
 ---
 
 body {
-    padding-bottom: 50px;
+    padding-bottom: 80px;
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        margin-bottom: 1em;
+    }
 }
 
 .page-title {
@@ -31,4 +37,12 @@ body {
 
 .popover {
     max-width: 20rem;
+}
+
+.gap-bottom {
+    margin-bottom: 40px;
+}
+
+.short-input {
+    max-width: 5rem;
 }

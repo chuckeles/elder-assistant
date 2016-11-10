@@ -35,8 +35,18 @@ In order to develop the website, you need to install Jekyll locally. It's worth 
 4. Go into the repo directory - `cd elder-assistant`
 5. Start Jekyll - `jekyll serve`
 
-*NOTE: If you get an error about a certificate when installing the Jekyll gem (on Windows), check [this Startoverflow question](http://stackoverflow.com/questions/27573248/certificate-verify-failed-in-gem-install-foundation). The first answer's solution worked for us.*
+*NOTE: If you get an error about a certificate when installing the Jekyll gem (on Windows), check [this StackOverflow question](http://stackoverflow.com/questions/27573248/certificate-verify-failed-in-gem-install-foundation). The first answer's solution worked for us.*
 
 You can leave Jekyll running, it will update the website as you change it and serve it on http://localhost:4000/.
 
 Also, get yourself at least a little familiar with [Bootstrap components](https://v4-alpha.getbootstrap.com/components/buttons/). There's a lot of them that we can use in the project.
+
+## Structure
+
+The HTML files in the root directory make the webpages visible to the user. Note that these files are wrapped in `_layouts/page.html` by Jekyll (right where the `{{ content }}` is present). If you want to add something that should be visible on every page, modify `_layouts/page.html`.
+
+Styles are in the `css` folder. Our custom styles are in `css/global.sass`, other files are for Bootstrap and Font Awesome (icons).
+
+Scripts are in the `js` folder. Our scripts are, again, in `js/global.js`, other files are libraries.
+
+Don't modify the library files. If you want to override something (i. e. a CSS class styling), do it in our project files.

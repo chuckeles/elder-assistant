@@ -16,9 +16,16 @@
         <link rel="stylesheet" href="{{ site.github.url }}/css/bootstrap.css">
         <link rel="stylesheet" href="{{ site.github.url }}/css/font-awesome.css">
         <link rel="stylesheet" href="{{ site.github.url }}/css/global.css">
+
+        <!-- js -->
+        <script src="{{ site.github.url }}/js/jquery.js"></script>
+        <script src="{{ site.github.url }}/js/tether.js"></script>
+        <script src="{{ site.github.url }}/js/bootstrap.js"></script>
+        <script src="{{ site.github.url }}/js/vue.js"></script>
+        <script src="{{ site.github.url }}/js/global.js"></script>
     </head>
     <body>
-        <div class="container">
+        <div class="container" id="page-container">
             <div class="row">
                 <div class="col-xs">
                     <h1 class="page-title">{{ page.title }}</h1>
@@ -54,11 +61,5 @@
                 {% endif %}
             </div>
         </nav>
-
-        <!-- js -->
-        <script src="{{ site.github.url }}/js/jquery.js"></script>
-        <script src="{{ site.github.url }}/js/tether.js"></script>
-        <script src="{{ site.github.url }}/js/bootstrap.js"></script>
-        <script src="{{ site.github.url }}/js/global.js"></script>
     </body>
 </html>

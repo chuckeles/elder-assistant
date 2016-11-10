@@ -10,50 +10,73 @@ help:
 
 <!-- page for ordering groceries -->
 
-<div class="row gap-bottom">
-    <div class="col-xs text-xs-center">
-        <a href="{{ site.github.url }}/index.html" class="btn btn-secondary">Späť</a>
+<div id="groceries-container">
+    <div class="row gap-bottom">
+        <div class="col-xs text-xs-center">
+            <a href="{{ site.github.url }}/index.html" class="btn btn-secondary">Späť</a>
+        </div>
     </div>
-</div>
 
-<div class="row gap-bottom">
-    <div class="col-xs">
-        <h2>Vyhľadávanie</h2>
-        <div class="input-group input-group-lg" data-toggle="tooltip"
-             title="Zadajte názov potraviny a stlačte tlačidlo Hľadať.">
-            <label class="input-group-addon" for="groceries-search-input">
-                Potraviny
-            </label>
-            <input type="text" class="form-control" id="groceries-search-input">
-            <span class="input-group-btn">
-                <button class="btn btn-secondary">
-                    <i class="fa fa-search"></i>
-                    Hľadať
-                </button>
-            </span>
+    <div class="row gap-bottom">
+        <div class="col-xs">
+            <h2>Vyhľadávanie</h2>
+            <div class="input-group input-group-lg" data-toggle="tooltip"
+                 title="Zadajte názov potraviny a stlačte tlačidlo Hľadať.">
+                <label class="input-group-addon" for="groceries-search-input">
+                    Potraviny
+                </label>
+                <input type="text" class="form-control" id="groceries-search-input">
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary">
+                        <i class="fa fa-search"></i>
+                        Hľadať
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gap-bottom">
+        <div class="col-xs">
+            <h2>Košík</h2>
+            <table class="table">
+                <thead class="thread-default">
+                    <tr>
+                        <th>Názov</th>
+                        <th>Cena</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% raw %}
+                    <tr v-for="product in shoppingCart">
+                        <td>{{ product.name }}</td>
+                        <td>
+                            <input type="number" v-model="product.amount" min="1">
+                        </td>
+                        <td>{{ product.price * product.amount }}&euro;</td>
+                    </tr>
+                    {% endraw %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs text-xs-center">
+            <div class="btn-group btn-group-lg">
+                <a href="" class="btn btn-primary" id="groceries-submit-button" data-toggle="tooltip"
+                   title="Týmto tlačidlom potvrdíte, že máte v košíku všetky potraviny, ktoré si chcete objednať ku vám domov.">
+                    <i class="fa fa-check"></i>
+                    Potvrdiť
+                </a>
+                <a href="{{ site.github.url }}/index.html" class="btn btn-secondary" data-toggle="tooltip"
+                   title="Týmto tlačidlom sa vrátite späť na domovskú obrazovku.">
+                    <i class="fa fa-times"></i>
+                    Zrušiť
+                </a>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="row gap-bottom">
-    <div class="col-xs">
-        <h2>Košík</h2>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-xs text-xs-center">
-        <div class="btn-group btn-group-lg">
-            <a href="" class="btn btn-primary" id="groceries-submit-button" data-toggle="tooltip"
-               title="Týmto tlačidlom potvrdíte, že máte v košíku všetky potraviny, ktoré si chcete objednať ku vám domov.">
-                <i class="fa fa-check"></i>
-                Potvrdiť
-            </a>
-            <a href="{{ site.github.url }}/index.html" class="btn btn-secondary" data-toggle="tooltip"
-               title="Týmto tlačidlom sa vrátite späť na domovskú obrazovku.">
-                <i class="fa fa-times"></i>
-                Zrušiť
-            </a>
-        </div>
-    </div>
-</div>
+<script src="{{ site.github.url }}/js/groceries.js"></script>

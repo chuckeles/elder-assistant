@@ -5,15 +5,55 @@ help:
     content: >
         Ak nevládzete zájsť do obchodu, nechajte to na nás. Iba nám napíšte svoj zoznam potravín
         a my vám ich nakúpime a prinesieme. Vyhľadajte svoje potraviny v zozname a pridajte si ich
-        do košíka. Keď máte vybraté všetky potrebné potraviny, stlačte tlačidlo Hotovo.
+        do košíka. Keď máte vybraté všetky potrebné potraviny, stlačte tlačidlo Potvrdiť.
 ---
 
 <!-- page for ordering groceries -->
 
-<div class="row">
+<div class="row gap-bottom">
+    <div class="col-xs text-xs-center">
+        <a href="{{ site.github.url }}/index.html" class="btn btn-secondary">Späť</a>
+    </div>
+</div>
+
+<div class="row gap-bottom">
     <div class="col-xs">
-        <p>
-            Tu si budete môcť objednať potraviny. Bude tu pole na hľadanie v zozname potravín.
-        </p>
+        <h2>Vyhľadávanie</h2>
+        <div class="input-group input-group-lg" data-toggle="tooltip"
+             title="Zadajte názov potraviny a stlačte tlačidlo Hľadať.">
+            <label class="input-group-addon" for="groceries-search-input">
+                Potraviny
+            </label>
+            <input type="text" class="form-control" id="groceries-search-input">
+            <span class="input-group-btn">
+                <button class="btn btn-secondary">
+                    <i class="fa fa-search"></i>
+                    Hľadať
+                </button>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="row gap-bottom">
+    <div class="col-xs">
+        <h2>Košík</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs text-xs-center">
+        <div class="btn-group btn-group-lg">
+            <a href="" class="btn btn-primary" id="groceries-submit-button" data-toggle="tooltip"
+               title="Týmto tlačidlom potvrdíte, že máte v košíku všetky potraviny, ktoré si chcete objednať ku vám domov.">
+                <i class="fa fa-check"></i>
+                Potvrdiť
+            </a>
+            <a href="{{ site.github.url }}/index.html" class="btn btn-secondary" data-toggle="tooltip"
+               title="Týmto tlačidlom sa vrátite späť na domovskú obrazovku.">
+                <i class="fa fa-times"></i>
+                Zrušiť
+            </a>
+        </div>
     </div>
 </div>

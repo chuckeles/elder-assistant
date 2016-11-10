@@ -23,6 +23,7 @@ There's a handful of technologies and libraries used in this project.
 - [Bootstrap](https://v4-alpha.getbootstrap.com/) - style framework with a lot of components and a layout system
 - [Font awesome](http://fontawesome.io/) - icons
 - [jQuery](http://jquery.com/) - scripting library, makes it easier to do common tasks, nicer Javascript
+- [Vue](http://vuejs.org/) - frontend library, makes dynamic components super-easy
 - [SASS](http://sass-lang.com/guide) - better CSS with nesting and variables
 
 ## Installation and preparation

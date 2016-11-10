@@ -37,7 +37,7 @@ In order to develop the website, you need to install Jekyll locally. It's worth 
 
 *NOTE: If you get an error about a certificate when installing the Jekyll gem (on Windows), check [this StackOverflow question](http://stackoverflow.com/questions/27573248/certificate-verify-failed-in-gem-install-foundation). The first answer's solution worked for us.*
 
-You can leave Jekyll running, it will update the website as you change it and serve it on http://localhost:4000/.
+You can leave Jekyll running, it will update the website as you change it and serve it on [localhost:4000](http://localhost:4000/).
 
 Also, get yourself at least a little familiar with [Bootstrap components](https://v4-alpha.getbootstrap.com/components/buttons/). There's a lot of them that we can use in the project.
 

@@ -46,8 +46,12 @@ Also, get yourself at least a little familiar with [Bootstrap components](https:
 
 The HTML files in the root directory make the webpages visible to the user. Note that these files are wrapped in `_layouts/page.html` by Jekyll (right where the `{{ content }}` is present). If you want to add something that should be visible on every page, modify `_layouts/page.html`.
 
-Styles are in the `css` folder. Our custom styles are in `css/global.sass`, other files are for Bootstrap and Font Awesome (icons).
+Styles are in the `css` folder. Our custom styles are in `css/global.scss`, other files are for Bootstrap and Font Awesome (icons).
 
 Scripts are in the `js` folder. Our scripts are, again, in `js/global.js`, other files are libraries.
 
 Don't modify the library files. If you want to override something (i. e. a CSS class styling), do it in our project files.
+
+### Global and page-specific files
+
+`css/global.scss` and `js/global.js` contain styles and scripts that should run on every page. If you have any page-specific styles and scripts, put them into separate files named after the page and load them in the page. Add the script to the bottom of the page's HTML file, i. e. `<script src={{ site.github.url}}/js/your-script-name.js`.

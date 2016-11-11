@@ -7,11 +7,83 @@ help:
 ---
 
 <!-- ordering a repair guy -->
+<div id="repair-container">
+    <div class="row gap-bottom">
+        <div class="col-xs text-xs-center">
+            <a href="{{ site.github.url }}/index.html" class="btn btn-secondary">Späť</a>
+        </div>
+    </div>
 
-<div class="row">
-    <div class="col-xs">
-        <p>
-            Tu si budete môcť objednať opravára ku vám domov. Formulár na adresu a selektor na typ spotrebiča.
-        </p>
+    <div class="row gap-bottom">
+        <div class="col-lg-6">
+            <div class="input-group input-group-lg" data-toggle="tooltip"
+                 title="Zadajte adresu svojko bydliska">
+                <span class="input-group-addon">Adresa</span>
+                <input type="text" class="form-control" placeholder="Iľkovičova 24" aria-describedby="Adresa">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="input-group input-group-lg" data-toggle="tooltip"
+                 title="Zadajte názov svojho mesta">
+                <span class="input-group-addon">Mesto</span>
+                <input type="text" class="form-control" placeholder="Bratislava" aria-describedby="Mesto">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h5>
+            Vyberte si typ zariadenia na opravenie.
+        </h5>
+    </div>
+    <div class="row gap-bottom">
+        <div class="form-group">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="deviceRadios" id="deviceRadios1" value="option1">
+                    Voda, kvapkajúci kohútik
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="deviceRadios" id="deviceRadios2" value="option2">
+                    Elektrina a zásuvky
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="deviceRadios" id="deviceRadios3" value="option3">
+                    Domáce spotrebiče
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="deviceRadios" id="deviceRadios4" value="option4">
+                    Plyn, kúrenie
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="deviceRadios" id="deviceRadios5" value="option5">
+                    Počítačová technika
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row gap-bottom">
+        <div class="col-xs text-xs-center">
+            <div class="btn-group btn-group-lg">
+                <a href="#" class="btn btn-primary" id="repair-submit-button" data-toggle="tooltip"
+                   title="Týmto tlačidlom potvrdíte výber zariadenia na opravenie.">
+                    <i class="fa fa-check"></i>
+                    Potvrdiť
+                </a>
+                <a href="{{ site.github.url }}/index.html" class="btn btn-secondary" data-toggle="tooltip"
+                   title="Týmto tlačidlom sa vrátite späť na domovskú obrazovku.">
+                    <i class="fa fa-times"></i>
+                    Zrušiť
+                </a>
+            </div>
+        </div>
     </div>
 </div>
+

@@ -13,33 +13,55 @@ help:
         <div class="col-xs text-xs-center">
             <a href="{{ site.github.url }}/index.html" class="btn btn-secondary">Späť</a>
         </div>
-    </div>
+	</div>
 
-     <div class="row gap-bottom">
-        <div class="col-xs">
-            <h5>Na tejto stránke si môžete zajednať odvoz</h5>
-        </div>
-    </div>
+	<div class="row gap-bottom">
+	    <div class="col-xs text-xs-center">
+	        <h5>Na tejto stránke si môžete zajednať odvoz. Náš šofér príde po vás a odvezie vás, kam budete potrebovať.</h5>
+	    </div>
+	</div>
+     	
+    <form method="get" action="https://www.google.com/maps" target="mapframe" >
+    	<div class="row gap-bottom">
+    		<div class="col-lg-6">
+    			<div class="input-group input-group-lg" data-toggle="tooltip" title="Zadajte adresu, odkiaľ Vás vyzdvihneme">
+           			<span class="input-group-addon">Miesto nástupu</span>
+	        		<input name="saddr" type="text" id="saddr" class="form-control" placeholder="Iľkovičova 24">
+	        	</div>
+	        	<input name="output" type="hidden" value="embed">
+	        	<input name="f" type="hidden" value="d">
+	        	<input name="z" type="hidden" value="11">
+			</div>
+	
+			<div class="col-lg-6">
+        		<div class="input-group input-group-lg" data-toggle="tooltip" title="Zadajte adresu, kde Vás vyložíme">
+        			<span class="input-group-addon">Miesto výstupu</span>
+	        		<input name="daddr" type="text" class="form-control" id="daddr" placeholder="Mlynské nivy 20" >
+	    		</div>
+	    	</div>
+	    </div>
+
+		<div class="col-xs text-xs-center">
+			<div class="btn-group btn-group-lg">
+        		<input class="btn btn-primary" type="submit" name="Submit" value="Potvrdiť" >
+        		<a href="{{ site.github.url }}/index.html" class="btn btn-secondary" data-toggle="tooltip"
+           		title="Týmto tlačidlom sa vrátite späť na domovskú obrazovku.">
+            	<i class="fa fa-times"></i>
+            	Zrušiť
+        		</a>
+    		</div>
+		</div>
+	</form>
+	
+	<br>
 
     <div class="row gap-bottom">
     	<div class="span">
-				<iframe 
-				  name="mapframe" width="500" height="450" 
-				  src="https://www.google.com/maps?z=11&amp;f=d&amp;output=embed&amp;daddr=&amp;">
-				</iframe>
+			<iframe 
+			  name="mapframe" width="500" height="450" 
+			  src="https://www.google.com/maps?z=11&amp;f=d&amp;output=embed&amp;daddr=&amp;">
+			</iframe>
 	    </div>
-   		
-		<div class="span">
-	    	<form method="get" action="https://www.google.com/maps" target="mapframe">
-		        <input name="saddr" type="text" class="form-control col-xs-7" id="saddr" value="Cestujem od">
-		        <input name="output" type="hidden" value="embed">
-		        <input name="f" type="hidden" value="d">
-		        <input name="z" type="hidden" value="11">
-		        <input name="daddr" type="text" class="form-control col-xs-7" id="daddr" value="Cestujem do" size="35">
-		        <input class="btn btn-secondary btn-sm" type="submit" name="Submit" value="Potvrdiť" >
-			</form>
-		</div>
-
 	</div>
 
 </div>

@@ -42,14 +42,10 @@ help:
 	    </div>
 
 		<div class="col-xs text-xs-center">
-			<div class="btn-group btn-group-lg">
-        		<input class="btn btn-primary" type="submit" name="Submit" value="Potvrdiť" >
-        		<a href="{{ site.github.url }}/index.html" class="btn btn-secondary" data-toggle="tooltip"
-           		title="Týmto tlačidlom sa vrátite späť na domovskú obrazovku.">
-            	<i class="fa fa-times"></i>
-            	Zrušiť
-        		</a>
-    		</div>
+			<button type="submit" class="btn btn-primary">
+				<i class="fa fa-check"></i>
+				Naplánovať cestu
+			</button>
 		</div>
 	</form>
 	
@@ -58,8 +54,8 @@ help:
     <div class="row gap-bottom">
     	<div class="span">
 			<iframe 
-			  name="mapframe" width="500" height="450" 
-			  src="https://www.google.com/maps?z=11&amp;f=d&amp;output=embed&amp;daddr=&amp;">
+			  	name="mapframe" width="500" height="450" 
+			  	src="https://www.google.com/maps?z=11&amp;f=d&amp;output=embed&amp;daddr=&amp;">
 			</iframe>
 	    </div>
 	</div>

@@ -11,6 +11,28 @@ var app = new Vue({
         }
     },
     methods: {
+        addFromMenu: function (i) {
+            switch (i) {
+                case 0:
+                    this.add({
+                        name: 'Slepačia polievka',
+                        price: .8
+                    });
+                    break;
+                case 1:
+                    this.add({
+                        name: 'Kuracie na prírodno s ryžou',
+                        price: 1.5
+                    });
+                    break;
+                case 2:
+                    this.add({
+                        name: 'Palacinky',
+                        price: 1
+                    });
+                    break;
+            }
+        },
         add: function (food) {
             this.selected.push({
                 name: food.name,

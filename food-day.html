@@ -35,10 +35,15 @@ help:
                     <tr v-for="food in selected">
                         {% raw %}
                         <td>{{ food.name }}</td>
-                        <td>{{ food.amount }}</td>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">&times;</span>
+                                <input class="form-control short-input" type="number" v-model="food.amount" min="1">
+                            </div>
+                        </td>
                         <td>{{ food.amount * food.price | price }}&euro;</td>
                         <td>
-                            <button class="btn btn-secondary btn-sm">
+                            <button class="btn btn-secondary btn-sm" @click="remove(food)">
                                 <i class="fa fa-trash"></i>
                                 Zmazať
                             </button>
@@ -55,7 +60,9 @@ help:
                             </button>
                         </td>
                         <td>
+                            {% raw %}
                             <span v-if="selected.length > 0">{{ totalPrice | price }}&euro;</span>
+                            {% endraw %}
                         </td>
                         <td></td>
                     </tr>
@@ -87,42 +94,48 @@ help:
             </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="food-select-modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    &times;
-                </button>
-                <h4>Jedálny lístok</h4>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row gap-bottom">
-                        <div class="col-xs">
-                            Vyberte si z našej dennej ponuky kliknutím na obrázok.
+    <div class="modal fade" id="food-select-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                    </button>
+                    <h4>Jedálny lístok</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row gap-bottom">
+                            <div class="col-xs">
+                                Vyberte si z našej dennej ponuky kliknutím na obrázok.
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-4">
-                            <figure class="figure">
-                                <img src="{{ site.github.url }}/img/soup.jpg" alt="Slepačí vývar" class="figure-img img-fluid">
-                                <figcaption class="figure-caption">Slepačí vývar</figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <figure class="figure">
-                                <img src="{{ site.github.url }}/img/meat.jpg" alt="Kuracie na prírodno s ryžou" class="figure-img img-fluid">
-                                <figcaption class="figure-caption">Kuracie na prírodno s ryžou</figcaption>
-                            </figure>
-                        </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <figure class="figure">
-                                <img src="{{ site.github.url }}/img/pancakes.jpg" alt="Palacinky" class="figure-img img-fluid">
-                                <figcaption class="figure-caption">Palacinky</figcaption>
-                            </figure>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <a href="#" data-dismiss="modal" @click="addFromMenu(0)">
+                                    <figure class="figure">
+                                        <img src="{{ site.github.url }}/img/soup.jpg" alt="Slepačí vývar" class="figure-img img-fluid">
+                                        <figcaption class="figure-caption">Slepačí vývar</figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <a href="#" data-dismiss="modal" @click="addFromMenu(1)">
+                                    <figure class="figure">
+                                        <img src="{{ site.github.url }}/img/meat.jpg" alt="Kuracie na prírodno s ryžou" class="figure-img img-fluid">
+                                        <figcaption class="figure-caption">Kuracie na prírodno s ryžou</figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <a href="#" data-dismiss="modal" @click="addFromMenu(2)">
+                                    <figure class="figure">
+                                        <img src="{{ site.github.url }}/img/pancakes.jpg" alt="Palacinky" class="figure-img img-fluid">
+                                        <figcaption class="figure-caption">Palacinky</figcaption>
+                                    </figure>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

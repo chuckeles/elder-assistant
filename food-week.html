@@ -1,15 +1,16 @@
 ---
-title: Objednať obed na zajtra
+title: Objednať obed na týždeň
 help:
     title: Pomoc pri objednávaní jedla
     content: >
-        Vyberte si z jedálneho lístka zajtra na obed. Vyberte si jedlo a počet porcií a potom
-        potvrďte svoju voľbu.
+        Môžete si objednať zvlášť jedlo na každý deň v týždni. Vyberte si z menu kliknutím na tlačidlo
+        Pridať v príslušnom dni. Keď máte vybraté jedlo na všetky dni, ktoré chcete, ukončite a potvrďte
+        svoj výber kliknutím na tlačidlo Potvrdiť.
 ---
 
-<!-- ordering lunch for the following day -->
+<!-- ordering lunch for the whole week -->
 
-<div id="food-day-container">
+<div id="food-week-container">
     <div class="row gap-bottom">
         <div class="col-xs text-xs-center">
             <a href="{{ site.github.url }}/food.html" class="btn btn-secondary">Späť</a>
@@ -20,20 +21,31 @@ help:
             <table class="table">
                 <thead class="thead-default">
                     <tr>
+                        <th>Deň</th>
                         <th>Jedlo</th>
                         <th>Počet porcií</th>
                         <th>Cena</th>
                         <th>Zmazať jedlo</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr v-if="selected.length === 0">
-                        <td colspan="4" class="text-xs-center">
-                            <em>Nemáte vybraný žiaden obed.</em>
+                <tbody v-for="(day, key) in selected">
+                    {% raw %}
+                    <tr>
+                        <td :rowspan="1 + day.food.length" class="align-middle">{{ day.name }}</td>
+                        <td>
+                            <button class="btn btn-secondary" data-toggle="modal" data-target="#food-select-modal"
+                                    @click="selectDay(key)">
+                                <i class="fa fa-plus"></i>
+                                Pridať jedlo
+                            </button>
+                        </td>
+                        <td colspan="3">
+                            <em v-if="day.food.length === 0">
+                                Na tento deň nemáte vybrané žiadne jedlo.
+                            </em>
                         </td>
                     </tr>
-                    <tr v-for="food in selected">
-                        {% raw %}
+                    <tr v-for="food in day.food">
                         <td>{{ food.name }}</td>
                         <td>
                             <div class="input-group input-group-sm">
@@ -43,28 +55,23 @@ help:
                         </td>
                         <td>{{ food.amount * food.price | price }}&euro;</td>
                         <td>
-                            <button class="btn btn-secondary btn-sm" @click="remove(food)">
+                            <button class="btn btn-secondary btn-sm" @click="remove(food, key)">
                                 <i class="fa fa-trash"></i>
                                 Zmazať
                             </button>
                         </td>
-                        {% endraw %}
                     </tr>
+                    {% endraw %}
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="1" class="text-xs-center">
-                            <button class="btn btn-secondary" data-toggle="modal" data-target="#food-select-modal">
-                                <i class="fa fa-plus"></i>
-                                Pridať jedlo
-                            </button>
-                        </td>
+                        <td colspan="2"></td>
                         <td>
-                            <span v-if="selected.length > 0">Spolu</span>
+                            <span v-if="totalSelected > 0">Spolu</span>
                         </td>
                         <td>
                             {% raw %}
-                            <span v-if="selected.length > 0">{{ totalPrice | price }}&euro;</span>
+                            <span v-if="totalSelected > 0">{{ totalPrice | price }}&euro;</span>
                             {% endraw %}
                         </td>
                         <td></td>
@@ -77,14 +84,14 @@ help:
     <div class="row">
         <div class="col-xs text-xs-center">
             <div class="btn-group btn-group-lg">
-                <a href="#food-day-container" class="btn btn-primary disabled" v-if="selected.length === 0">
+                <a href="#food-week-container" class="btn btn-primary disabled" v-if="totalSelected === 0">
                     <i class="fa fa-cutlery"></i>
                     Nemáte vybraný žiaden obed
                 </a>
                 {% raw %}
                 <a href="#" class="btn btn-primary" id="food-day-submit-button" data-toggle="tooltip"
                    title="Týmto tlačidlom potvrdíte, že si chcete objednať vybrané jedlo na zajtra. Na ďalšej obrazovke budete môcť zadať vašu adresu."
-                   v-show="selected.length > 0">
+                   v-show="totalSelected > 0">
                     <i class="fa fa-cutlery"></i>
                     Potvrdiť a objednať za {{ totalPrice | price }}&euro;
                 </a>
@@ -105,7 +112,9 @@ help:
                     <button type="button" class="close" data-dismiss="modal">
                         &times;
                     </button>
-                    <h4>Jedálny lístok</h4>
+                    {% raw %}
+                    <h4>Jedálny lístok na {{ selectedDayName }}</h4>
+                    {% endraw %}
                 </div>
                 <div class="modal-body">
                     <div class="container-fluid">
@@ -118,7 +127,8 @@ help:
                             <div class="col-xs-12 col-sm-4">
                                 <a href="#" data-dismiss="modal" @click="addFromMenu(0)">
                                     <figure class="figure">
-                                        <img src="{{ site.github.url }}/img/soup.jpg" alt="Slepačí vývar" class="figure-img img-fluid">
+                                        <img src="{{ site.github.url }}/img/soup.jpg" alt="Slepačí vývar"
+                                             class="figure-img img-fluid">
                                         <figcaption class="figure-caption">Slepačí vývar</figcaption>
                                     </figure>
                                 </a>
@@ -126,7 +136,8 @@ help:
                             <div class="col-xs-12 col-sm-4">
                                 <a href="#" data-dismiss="modal" @click="addFromMenu(1)">
                                     <figure class="figure">
-                                        <img src="{{ site.github.url }}/img/meat.jpg" alt="Kuracie na prírodno s ryžou" class="figure-img img-fluid">
+                                        <img src="{{ site.github.url }}/img/meat.jpg" alt="Kuracie na prírodno s ryžou"
+                                             class="figure-img img-fluid">
                                         <figcaption class="figure-caption">Kuracie na prírodno s ryžou</figcaption>
                                     </figure>
                                 </a>
@@ -134,7 +145,8 @@ help:
                             <div class="col-xs-12 col-sm-4">
                                 <a href="#" data-dismiss="modal" @click="addFromMenu(2)">
                                     <figure class="figure">
-                                        <img src="{{ site.github.url }}/img/pancakes.jpg" alt="Palacinky" class="figure-img img-fluid">
+                                        <img src="{{ site.github.url }}/img/pancakes.jpg" alt="Palacinky"
+                                             class="figure-img img-fluid">
                                         <figcaption class="figure-caption">Palacinky</figcaption>
                                     </figure>
                                 </a>
@@ -147,4 +159,4 @@ help:
     </div>
 </div>
 
-<script src="{{ site.github.url }}/js/food-day.js"></script>
+<script src="{{ site.github.url }}/js/food-week.js"></script>

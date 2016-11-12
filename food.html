@@ -3,15 +3,32 @@ title: Objednanie donášky jedál
 help:
     title: Donáška obedov
     content: >
-        Tu si môžete objednať donášku obedov priamo ku vám domov.
+        Chcete si objednať obed. Ak si chcete objednať iba na zajtra, vyberte 'Objednať na jeden deň'.
+        Inak si môžete 'Objednať na celý týždeň' dopredu.
 ---
 
 <!-- page for ordering lunch -->
 
 <div class="row">
-    <div class="col-xs">
-        <p>
-            Tu si budete môcť objednať obedy.
-        </p>
+    <div class="col-xs-12 col-sm-4">
+        <a href="{{ site.github.url }}/food-day.html" class="btn btn-secondary btn-lg btn-block btn-huge" data-toggle="tooltip"
+           title="Tu si môžete objednať jedlo na zajtra podľa zajtrajšieho menu.">
+            <i class="fa fa-cutlery"></i>
+            Objednať na jedeň deň
+        </a>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+        <a href="{{ site.github.url }}/food-week.html" class="btn btn-secondary btn-lg btn-block btn-huge" data-toggle="tooltip"
+           title="Objednajte si obedy na celý týždeň dopredu. Zobrazí sa vám jedálny lístok na celý týždeň.">
+            <i class="fa fa-calendar"></i>
+            Objednať na celý týždeň
+        </a>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+        <a href="{{ site.github.url }}/index.html" class="btn btn-secondary btn-lg btn-block btn-huge" data-toggle="tooltip"
+           title="Vráťte sa naspäť na domovskú stránku.">
+            <i class="fa fa-ban"></i>
+            Naspäť
+        </a>
     </div>
 </div>

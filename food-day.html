@@ -1,0 +1,134 @@
+---
+title: Objednať obed na zajtra
+help:
+    title: Pomoc pri objednávaní jedla
+    content: >
+        Vyberte si z jedálneho lístka zajtra na obed. Vyberte si jedlo a počet porcií a potom
+        potvrďte svoju voľbu.
+---
+
+<!-- ordering lunch for the following day -->
+
+<div id="food-day-container">
+    <div class="row gap-bottom">
+        <div class="col-xs text-xs-center">
+            <a href="{{ site.github.url }}/food.html" class="btn btn-secondary">Späť</a>
+        </div>
+    </div>
+    <div class="row gap-bottom">
+        <div class="col-xs">
+            <table class="table">
+                <thead class="thead-default">
+                    <tr>
+                        <th>Jedlo</th>
+                        <th>Počet porcií</th>
+                        <th>Cena</th>
+                        <th>Zmazať jedlo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-if="selected.length === 0">
+                        <td colspan="4" class="text-xs-center">
+                            <em>Nemáte vybraný žiaden obed.</em>
+                        </td>
+                    </tr>
+                    <tr v-for="food in selected">
+                        {% raw %}
+                        <td>{{ food.name }}</td>
+                        <td>{{ food.amount }}</td>
+                        <td>{{ food.amount * food.price | price }}&euro;</td>
+                        <td>
+                            <button class="btn btn-secondary btn-sm">
+                                <i class="fa fa-trash"></i>
+                                Zmazať
+                            </button>
+                        </td>
+                        {% endraw %}
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2" class="text-xs-center">
+                            <button class="btn btn-secondary" data-toggle="modal" data-target="#food-select-modal">
+                                <i class="fa fa-plus"></i>
+                                Pridať jedlo
+                            </button>
+                        </td>
+                        <td>
+                            <span v-if="selected.length > 0">{{ totalPrice | price }}&euro;</span>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs text-xs-center">
+            <div class="btn-group btn-group-lg">
+                <a href="#food-day-container" class="btn btn-primary disabled" v-if="selected.length === 0">
+                    <i class="fa fa-cutlery"></i>
+                    Nemáte vybraný žiaden obed
+                </a>
+                {% raw %}
+                <a href="#" class="btn btn-primary" id="food-day-submit-button" data-toggle="tooltip"
+                   title="Týmto tlačidlom potvrdíte, že si chcete objednať vybrané jedlo na zajtra. Na ďalšej obrazovke budete môcť zadať vašu adresu."
+                   v-show="selected.length > 0">
+                    <i class="fa fa-cutlery"></i>
+                    Potvrdiť a objednať za {{ totalPrice | price }}&euro;
+                </a>
+                {% endraw %}
+                <a href="{{ site.github.url }}/food.html" class="btn btn-secondary" data-toggle="tooltip"
+                   title="Týmto tlačidlom sa vrátite späť.">
+                    <i class="fa fa-times"></i>
+                    Zrušiť
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="food-select-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+                <h4>Jedálny lístok</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row gap-bottom">
+                        <div class="col-xs">
+                            Vyberte si z našej dennej ponuky kliknutím na obrázok.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                            <figure class="figure">
+                                <img src="{{ site.github.url }}/img/soup.jpg" alt="Slepačí vývar" class="figure-img img-fluid">
+                                <figcaption class="figure-caption">Slepačí vývar</figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <figure class="figure">
+                                <img src="{{ site.github.url }}/img/meat.jpg" alt="Kuracie na prírodno s ryžou" class="figure-img img-fluid">
+                                <figcaption class="figure-caption">Kuracie na prírodno s ryžou</figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <figure class="figure">
+                                <img src="{{ site.github.url }}/img/pancakes.jpg" alt="Palacinky" class="figure-img img-fluid">
+                                <figcaption class="figure-caption">Palacinky</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ site.github.url }}/js/food-day.js"></script>

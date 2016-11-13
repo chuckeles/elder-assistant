@@ -1,0 +1,107 @@
+---
+title: Zhrnutie objednávky
+help:
+    title: Kontrola objednávky
+    content: >
+        Tu si môžete skontrolovať Vašu objednávku pred potvrdením.
+---
+
+<div id="food-summary-day-container">
+    <div class="row gap-bottom">
+        <div class="col-xs text-xs-center">
+            <a href="{{ site.github.url }}/food-address-day.html" class="btn btn-secondary">Späť</a>
+        </div>
+    </div>
+
+    <div class="row gap-bottom">
+        <div class="col-xs">
+            <table class="table">
+                <thead class="thead-default">
+                <tr>
+                    <th>Jedlo</th>
+                    <th>Počet porcií</th>
+                    <th>Cena</th>
+                    <th>Zmazať jedlo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-if="selected.length === 0">
+                    <td colspan="4" class="text-xs-center">
+                        <em>Nemáte vybraný žiaden obed.</em>
+                    </td>
+                </tr>
+                <tr v-for="food in selected">
+                    {% raw %}
+                    <td>{{ food.name }}</td>
+                    <td>
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-addon">&times;</span>
+                            <input class="form-control short-input" type="number" v-model="food.amount" min="1">
+                        </div>
+                    </td>
+                    <td>{{ food.amount * food.price | price }}&euro;</td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" @click="remove(food)">
+                            <i class="fa fa-trash"></i>
+                            Zmazať
+                        </button>
+                    </td>
+                    {% endraw %}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% raw %}
+    <h5>
+        Výsledná cena je {{ totalPrice | price }}&euro;
+    </h5>
+    {% endraw %}
+
+    <hr class="my-2">
+
+    <div class="form-group row">
+        <label for="city-input" class="col-xs-2 col-form-label">Mesto</label>
+        <div class="col-xs-10">
+            <input class="form-control" type="text" id="city-input" readonly>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="psc-input" class="col-xs-2 col-form-label">PSČ</label>
+        <div class="col-xs-10">
+            <input class="form-control" type="text" id="psc-input" readonly>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="address-input" class="col-xs-2 col-form-label">Adresa</label>
+        <div class="col-xs-10">
+            <input class="form-control" type="text" id="address-input" readonly>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="tel-input" class="col-xs-2 col-form-label">Tel. číslo</label>
+        <div class="col-xs-10">
+            <input class="form-control" type="text" id="tel-input" readonly>
+        </div>
+    </div>
+
+    <div class="row gap-bottom">
+        <div class="col-xs text-xs-center">
+            <div class="btn-group btn-group-lg">
+                <a href="#" class="btn btn-primary" id="repair-submit-button" data-toggle="tooltip"
+                   title="Týmto tlačidlom potvrdíte Vašu objednávku.">
+                    <i class="fa fa-check"></i>
+                    Potvrdiť
+                </a>
+                <a href="{{ site.github.url }}/food-address-day.html" class="btn btn-secondary" data-toggle="tooltip"
+                   title="Týmto tlačidlom sa vrátite späť.">
+                    <i class="fa fa-times"></i>
+                    Zrušiť
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ site.github.url }}/js/food-summary-day.js"></script>

@@ -79,6 +79,9 @@ var app = new Vue({
         },
         remove: function (food, day) {
             this.selected[day].food.splice(this.selected[day].food.indexOf(food), 1);
+        },
+        saveSelection: function () {
+            localStorage.setItem('selectedFoodWeek', JSON.stringify(this.selected));
         }
     },
     filters: {

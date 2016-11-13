@@ -1,0 +1,75 @@
+---
+title: Zavolať lekára
+help:
+    title: Lekárska prehliadka u Vás doma
+    content: >
+        V prípade potreby lekárskej prehliadky stačí vyplniť meno, adresu a rodné číslo pacienta.
+        Lekár Vás potom na základe týchto informácií navštívi a vyšetrí v pohodlí Vášho domova.
+---
+
+<!-- ordering a doctor -->
+<div id="call-doctor-container">
+    <div class="row gap-bottom">
+        <div class="col-xs text-xs-center">
+            <a href="{{ site.github.url }}/doctor.html" class="btn btn-secondary">Späť</a>
+        </div>
+    </div>
+
+    <div class="row gap-bottom">
+        <div class="col-xs text-xs-center">
+            <h5>Zabeštelujte si návštevu všeobecného lekára u Vás doma. Lekár navštevuje pacientov vo štvrtok medzi 13:30 a 16:00.</h5>
+        </div>
+    </div>
+
+    <div class="row gap-bottom">
+        <div class="col-lg-6">
+            <div class="input-group input-group-lg" data-toggle="tooltip"
+                 title="Zadajte svoje meno">
+                <span class="input-group-addon">Celé meno</span>
+                <input type="text" class="form-control" placeholder="Jožko Mrkvička" aria-describedby="Meno">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="input-group input-group-lg" data-toggle="tooltip"
+                 title="Zadajte svoje rodné číslo">
+                <span class="input-group-addon">Rodné číslo</span>
+                <input type="text" class="form-control" placeholder="690101/0000" aria-describedby="RodneCislo">
+            </div>
+        </div>
+    </div>
+
+    <div class="row gap-bottom">
+        <div class="col-lg-6">
+            <div class="input-group input-group-lg" data-toggle="tooltip"
+                 title="Zadajte adresu svojho bydliska">
+                <span class="input-group-addon">Adresa</span>
+                <input type="text" class="form-control" placeholder="Iľkovičova 24" aria-describedby="Adresa">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="input-group input-group-lg" data-toggle="tooltip"
+                 title="Zadajte názov svojho mesta">
+                <span class="input-group-addon">Mesto</span>
+                <input type="text" class="form-control" placeholder="Bratislava" aria-describedby="Mesto">
+            </div>
+        </div>
+    </div>
+
+    <div class="row gap-bottom">
+        <div class="col-xs text-xs-center">
+            <div class="btn-group btn-group-lg">
+                <a href="#" class="btn btn-primary" id="call-doctor-submit-button" data-toggle="tooltip"
+                   title="Týmto tlačidlom potvrdíte záujem o návštevu lekára u Vás doma.">
+                    <i class="fa fa-check"></i>
+                    Potvrdiť
+                </a>
+                <a href="{{ site.github.url }}/doctor.html" class="btn btn-secondary" data-toggle="tooltip"
+                   title="Týmto tlačidlom vymažete zadané údaje a vrátite sa naspäť na stránku lekára.">
+                    <i class="fa fa-times"></i>
+                    Zrušiť
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+

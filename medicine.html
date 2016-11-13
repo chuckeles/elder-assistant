@@ -111,19 +111,19 @@ help:
     <div class="row">
         <div class="col-xs text-xs-center">
             <div class="btn-group btn-group-lg">
-                {% raw %}
                 <a href="#medicine-search-input" class="btn btn-primary disabled"
                    v-if="shoppingCart.length === 0">
                     <i class="fa fa-shopping-cart"></i>
                     Váš košík je prázdny
                 </a>
-                <a href="#" class="btn btn-primary" id="medicine-submit-button" data-toggle="tooltip"
+                <a href="{{ site.github.url }}/medicine-success.html" class="btn btn-primary" id="medicine-submit-button" data-toggle="tooltip"
                    title="Týmto tlačidlom potvrdíte, že máte v košíku všetky lieky, ktoré si chcete objednať ku vám domov."
                    v-show="shoppingCart.length > 0">
                     <i class="fa fa-check"></i>
+                    {% raw %}
                     Potvrdiť a objednať za {{ totalPrice | price }}&euro;
+                    {% endraw %}
                 </a>
-                {% endraw %}
                 <a href="{{ site.github.url }}/index.html" class="btn btn-secondary" data-toggle="tooltip"
                    title="Týmto tlačidlom sa vrátite späť na domovskú obrazovku.">
                     <i class="fa fa-times"></i>

@@ -88,14 +88,14 @@ help:
                     <i class="fa fa-cutlery"></i>
                     Nemáte vybraný žiaden obed
                 </a>
-                {% raw %}
-                <a href="#" class="btn btn-primary" id="food-day-submit-button" data-toggle="tooltip"
+                <a href="{{ site.github.url }}/address.html" class="btn btn-primary" id="food-day-submit-button" data-toggle="tooltip"
                    title="Týmto tlačidlom potvrdíte, že si chcete objednať vybrané jedlo na zajtra. Na ďalšej obrazovke budete môcť zadať vašu adresu."
-                   v-show="totalSelected > 0">
+                   v-show="totalSelected > 0" @click="saveSelection">
                     <i class="fa fa-cutlery"></i>
+                    {% raw %}
                     Potvrdiť a objednať za {{ totalPrice | price }}&euro;
+                    {% endraw %}
                 </a>
-                {% endraw %}
                 <a href="{{ site.github.url }}/food.html" class="btn btn-secondary" data-toggle="tooltip"
                    title="Týmto tlačidlom sa vrátite späť.">
                     <i class="fa fa-times"></i>

@@ -42,6 +42,9 @@ var app = new Vue({
         },
         remove: function (food) {
             this.selected.splice(this.selected.indexOf(food), 1);
+        },
+        saveSelection: function () {
+            localStorage.setItem('selectedFoodTomorrow', JSON.stringify(this.selected));
         }
     },
     filters: {

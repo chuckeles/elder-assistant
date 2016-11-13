@@ -26,8 +26,7 @@ help:
                     <i class="fa fa-search"></i>
                     Prehľadávať lieky
                 </label>
-                <input type="text" class="form-control" v-model="filter" id="medicine-search-input" placeholder="Levocetirzín dihydrochlorid"
-                       >
+                <input type="text" class="form-control" v-model="filter" id="medicine-search-input" placeholder="Levocetirzín dihydrochlorid">
             </div>
         </div>
     </div>
@@ -116,7 +115,7 @@ help:
                     <i class="fa fa-shopping-cart"></i>
                     Váš košík je prázdny
                 </a>
-                <a href="{{ site.github.url }}/medicine-success.html" class="btn btn-primary" id="medicine-submit-button" data-toggle="tooltip"
+                <a href="{{ site.github.url }}/medicine-address.html" class="btn btn-primary" id="medicine-submit-button" data-toggle="tooltip"
                    title="Týmto tlačidlom potvrdíte, že máte v košíku všetky lieky, ktoré si chcete objednať ku vám domov."
                    v-show="shoppingCart.length > 0">
                     <i class="fa fa-check"></i>

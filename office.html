@@ -8,10 +8,67 @@ help:
 
 <!-- byrocracy -->
 
-<div class="row">
-    <div class="col-xs">
-        <p>
-            Tu budú úradné záležitosti.
-        </p>
+<div id="transport-container">
+	<div class="row gap-bottom">
+        <div class="col-xs text-xs-center">
+            <a href="{{ site.github.url }}/index.html" class="btn btn-secondary">Späť</a>
+        </div>
+	</div>
+
+	<div class="row gap-bottom">
+	    <div class="col-xs text-xs-center">
+	        <h5>Na tejto stránke sa môžete zahlásiť na obecný úrad, kde Vám s radosťou pomôžu vyriešiť vaše problémi ohľadne uradných vecí ľudia na to špecializovaní.</h5>
+	    </div>
+	</div>
+
+	<div class="row">
+    	<h5>Potrebujem:</h5>
+	</div>
+	
+	<div class="row gap-bottom">
+        <div class="form-group">
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="deviceRadios" id="deviceRadios1" value="option1">
+                    Vytlačiť/potvrdiť úradný dokument
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="deviceRadios" id="deviceRadios1" value="option1">
+                    Poskytnúť právne poradenstvo
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="deviceRadios" id="deviceRadios1" value="option1">
+                   	Náhlasiť zmenu/úpravu 
+                </label>
+            </div>
+        </div>
     </div>
+
+    <div class="row gap-bottom">
+    	<div class="col-xs text-xs-center">
+			<div class="btn-group btn-group-lg dropup">
+  				<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  					<i class="fa fa-clock-o"></i>
+    				Čas
+    			 </button>
+				<div class="dropdown-menu">
+				  	<a class="dropdown-item" href="#">11:00</a>
+					<a class="dropdown-item" href="#">12:00</a>
+				    <a class="dropdown-item" href="#">13:00</a>
+				    <a class="dropdown-item" href="#">14:00</a>
+				    <a class="dropdown-item" href="#">15:00</a>
+				</div>
+				<button type="button" class="btn btn-primary" data-toggle="tooltip" title="Týmto tlačidlom potvrdíte zadaný čas.">
+					<i class="fa fa-check"></i>
+		  			Potvrdiť
+				</button>
+			</div>
+		</div>
+	</div>
+
 </div>
+

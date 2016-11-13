@@ -1,70 +1,64 @@
 ---
 title: Vaša adresa
 help:
-    title: Miesto, kám donesieme Vaše hotové jedlo
+    title: Kam vám prinesieme obed?
     content: >
-        Zadajte svoju adresu a číslo na ktoré Vám zavoláme pri donáške hotového jedla.
+        Na tejto stránke zadajte adresu, na ktorú vám budeme nosiť obedy. Zadajte tiež svoje
+        telefónne číslo, aby sme vás mohli vždy kontaktovať.
 ---
 
 <!-- food delivery address -->
+
 <div id="food-address-container">
     <div class="row gap-bottom">
         <div class="col-xs text-xs-center">
-            <a href="{{ site.github.url }}/food-week" class="btn btn-secondary">Späť</a>
+            <a href="{{ site.github.url }}/food-week.html" class="btn btn-secondary">Späť</a>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="input-group input-group-lg" data-toggle="tooltip"
-                 title="Zadajte názov svojho mesta">
-                <span class="input-group-addon">Mesto</span>
-                <input type="text" class="form-control" placeholder="Bratislava" aria-describedby="Mesto" id = "mesto">
+    <form id="food-address-form">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="mesto">Mesto</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Bratislava" id="mesto" required>
             </div>
         </div>
-        <div class="col-lg-6">
-            <div class="input-group input-group-lg" data-toggle="tooltip"
-                 title="Zadajte poštové smerovacie číslo svojho mesta">
-                <span class="input-group-addon">PSČ</span>
-                <input type="text" class="form-control" placeholder="84104" aria-describedby="Poštové smerovacie čislo" id="psc">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="psc">PSČ</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="84104" id="psc" required>
             </div>
         </div>
-    </div>
-    <div class="row gap-bottom">
-        <div class="col-lg-12">
-            <div class="input-group input-group-lg" data-toggle="tooltip"
-                 title="Zadajte názov svojho mesta">
-                <span class="input-group-addon">Adresa</span>
-                <input type="text" class="form-control" placeholder="Iľkovičova 24" aria-describedby="Adresa" id="adresa">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="adresa">Ulica a číslo domu</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Iľkovičova 24" id="adresa" required>
             </div>
         </div>
-    </div>
-    <div class="row gap-bottom">
-        <div class="col-lg-12">
-            <div class="input-group input-group-lg" data-toggle="tooltip"
-                 title="Zadajte telefónne čislo, na ktoré Vám zavoláme pred donáškou jedla">
-                <span class="input-group-addon">Tel. číslo</span>
-                <input type="tel" class="form-control" placeholder="0900 123 456" aria-describedby="Telefónne číslo" id="tel-cislo">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="tel-cislo">Telefónne číslo</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="0900 123 456" id="tel-cislo" required>
             </div>
         </div>
-    </div>
 
-    <div class="row gap-bottom">
-        <div class="col-xs text-xs-center">
-            <div class="btn-group btn-group-lg">
-                <a href="{{ site.github.url }}/food-summary-week.html" class="btn btn-primary" id="saveSelection" data-toggle="tooltip"
-                   title="Týmto tlačidlom potvrdíte zadanú adresu a telefónne číslo." @click>
-                    <i class="fa fa-check"></i>
-                    Potvrdiť
-                </a>
-                <a href="{{ site.github.url }}/food-week" class="btn btn-secondary" data-toggle="tooltip"
-                   title="Týmto tlačidlom sa vrátite späť.">
-                    <i class="fa fa-times"></i>
-                    Zrušiť
-                </a>
+        <div class="row gap-bottom">
+            <div class="col-xs text-xs-center">
+                <div class="btn-group btn-group-lg">
+                    <button href="{{ site.github.url }}/food-summary-week.html" class="btn btn-primary" id="submit"
+                            data-toggle="tooltip" title="Týmto tlačidlom potvrdíte zadanú adresu a telefónne číslo.">
+                        <i class="fa fa-check"></i>
+                        Potvrdiť
+                    </button>
+                    <a href="{{ site.github.url }}/food-week.html" class="btn btn-secondary" data-toggle="tooltip"
+                       title="Týmto tlačidlom sa vrátite späť.">
+                        <i class="fa fa-times"></i>
+                        Zrušiť
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <script src="{{ site.github.url }}/js/food-address.js"></script>

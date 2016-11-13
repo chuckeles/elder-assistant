@@ -46,7 +46,7 @@ help:
                 {% raw %}
                 <tr v-for="product in filteredShop">
                     <td>{{ product.name }}</td>
-                    <td>{{ product.price }}&euro;</td>
+                    <td>{{ product.price | price }}&euro;</td>
                     <td>
                         <button class="btn btn-secondary btn-sm" @click="addToCart(product)">
                             <i class="fa fa-shopping-cart"></i>

@@ -3,16 +3,78 @@ title: Upratať domov
 help:
     title: Nevládzete si doma poupratovať?
     content: >
-        Zavolajte nás ku vám domov a my vám spravíme poriadok. Zadajte svoju adresu a deň, na ktorý si
+        Zavolajte nás ku vám domov a my Vám spravíme poriadok. Zadajte svoju adresu a deň, na ktorý si
         chcete upratovanie objednať.
 ---
 
 <!-- house cleaning -->
 
-<div class="row">
+<div class="container">
+
+    <div class="row gap-bottom">
+        <div class="col-xs text-xs-center">
+            <a href="{{ site.github.url }}/index.html" class="btn btn-secondary">Späť</a>
+        </div>
+    </div>
+
+    <div class="row gap-bottom">
+        <div class="col-xs text-xs-center">
+        </div>
+    </div>
+
     <div class="col-xs">
-        <p>
-            Tu sa bude dať zavolať si upratovačku. Bude to formulár na adresu a deň.
-        </p>
+        <div class="row gap-bottom">
+            <div class="col-lg-6">
+                <div class="input-group input-group-lg" data-toggle="tooltip"
+                     title="Zadajte svoje meno">
+                    <span class="input-group-addon">Celé meno</span>
+                    <input type="text" class="form-control" placeholder="Jožko Mrkvička" aria-describedby="Meno">
+                </div>
+            </div>
+        </div>
+
+        <div class="row gap-bottom">
+            <div class="col-lg-6">
+                <div class="input-group input-group-lg" data-toggle="tooltip"
+                     title="Zadajte adresu svojho bydliska">
+                    <span class="input-group-addon">Adresa</span>
+                    <input type="text" class="form-control" placeholder="Iľkovičova 24" aria-describedby="Adresa">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="input-group input-group-lg" data-toggle="tooltip"
+                     title="Zadajte názov svojho mesta">
+                    <span class="input-group-addon">Mesto</span>
+                    <input type="text" class="form-control" placeholder="Bratislava" aria-describedby="Mesto">
+                </div>
+            </div>
+        </div>
+
+        <div class="row gap-bottom">
+            <div class="col-lg-6">
+                <div class="input-group input-group-lg" data-toggle="tooltip"
+                     title="Zadajte dátum">
+                    <span class="input-group-addon">Dátum upratovania</span>
+                    <input type="date" dataformatas="dd/mm/yyyy" class="form-control" placeholder="14/11/2016" aria-describedby="Datum">
+                </div>
+            </div>
+        </div>
+
+        <div class="row gap-bottom">
+            <div class="col-xs text-xs-center">
+                <div class="btn-group btn-group-lg">
+                    <a href="#" class="btn btn-primary" id="household-submit-button" data-toggle="tooltip"
+                       title="Týmto tlačidlom potvrdíte záujem o upratanie u Vás doma.">
+                        <i class="fa fa-check"></i>
+                        Potvrdiť
+                    </a>
+                    <a href="{{ site.github.url }}/index.html" class="btn btn-secondary" data-toggle="tooltip"
+                       title="Týmto tlačidlom vymažete zadané údaje a vrátite sa naspäť na úvodnú stránku.">
+                        <i class="fa fa-times"></i>
+                        Zrušiť
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

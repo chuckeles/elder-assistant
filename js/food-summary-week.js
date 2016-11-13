@@ -1,5 +1,5 @@
 var app = new Vue({
-    el: '#food-summary-day-container',
+    el: '#food-summary-week-container',
     data: {
 
         selectedDay: 'monday',

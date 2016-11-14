@@ -20,7 +20,7 @@ help:
 	        <h5>Na tejto stránke si môžete zajednať odvoz. Náš šofér príde po vás a odvezie vás, kam budete potrebovať.</h5>
 	    </div>
 	</div>
-     	
+
     <form method="get" action="https://www.google.com/maps" target="mapframe" >
     	<div class="row gap-bottom">
     		<div class="col-lg-6">
@@ -32,7 +32,7 @@ help:
 	        	<input name="f" type="hidden" value="d">
 	        	<input name="z" type="hidden" value="11">
 			</div>
-	
+
 			<div class="col-lg-6">
         		<div class="input-group input-group-lg" data-toggle="tooltip" title="Zadajte adresu, kde Vás vyložíme">
         			<span class="input-group-addon">Miesto výstupu</span>
@@ -48,7 +48,7 @@ help:
 			</button>
 		</div>
 	</form>
-	
+
 	<br>
 
     <div class="row gap-bottom">
@@ -57,6 +57,16 @@ help:
 			</iframe>
 	    </div>
 	</div>
+
+    <div class="row gap-bottom">
+        <div class="col-sm">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">Telefónne číslo</span>
+                <input type="text" class="form-control" placeholder="0900 123 456" id="tel-cislo" required
+                       pattern="[()0-9\s+]+" minlength="7">
+            </div>
+        </div>
+    </div>
 
 	<div class="row gap-bottom">
 		<div class="col-xs text-xs-center">

@@ -3,9 +3,9 @@ title: Objednať obed na týždeň
 help:
     title: Pomoc pri objednávaní jedla
     content: >
-        Môžete si objednať zvlášť jedlo na každý deň v týždni. Vyberte si z menu kliknutím na tlačidlo
-        Pridať v príslušnom dni. Keď máte vybraté jedlo na všetky dni, ktoré chcete, ukončite a potvrďte
-        svoj výber kliknutím na tlačidlo Potvrdiť.
+        Môžete si objednať zvlášť jedlo na každý deň v týždni. Jedlo vám budeme doručovať budúci týždeň.
+        Vyberte si z menu kliknutím na tlačidlo Pridať v príslušnom dni. Keď máte vybraté jedlo na všetky dni,
+        ktoré chcete, ukončite a potvrďte svoj výber kliknutím na tlačidlo Potvrdiť.
 ---
 
 <!-- ordering lunch for the whole week -->
@@ -23,7 +23,6 @@ help:
                     <tr>
                         <th>Deň</th>
                         <th>Jedlo</th>
-                        <th>Počet porcií</th>
                         <th>Cena</th>
                         <th>Zmazať jedlo</th>
                     </tr>
@@ -39,7 +38,7 @@ help:
                                 Pridať jedlo
                             </button>
                         </td>
-                        <td colspan="3" class="text-xs-center">
+                        <td colspan="2" class="text-xs-center">
                             <em v-if="day.food.length === 0">
                                 Na tento deň nemáte vybrané žiadne jedlo.
                             </em>
@@ -47,12 +46,6 @@ help:
                     </tr>
                     <tr v-for="food in day.food">
                         <td>{{ food.name }}</td>
-                        <td>
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-addon">&times;</span>
-                                <input class="form-control short-input" type="number" v-model="food.amount" min="1">
-                            </div>
-                        </td>
                         <td>{{ food.amount * food.price | price }}&euro;</td>
                         <td>
                             <button class="btn btn-secondary btn-sm" @click="remove(food, key)">
@@ -66,17 +59,15 @@ help:
                 <tbody>
                     <tr>
                         <td>Sobota</td>
-                        <td colspan="4" class="text-xs-center">
+                        <td colspan="3" class="text-xs-center">
                             <em>
                                 V tento deň sa nevarí.
                             </em>
                         </td>
                     </tr>
-                </tbody>
-                <tbody>
                     <tr>
                         <td>Nedeľa</td>
-                        <td colspan="4" class="text-xs-center">
+                        <td colspan="3" class="text-xs-center">
                             <em>
                                 V tento deň sa nevarí.
                             </em>
@@ -85,7 +76,7 @@ help:
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="2"></td>
+                        <td></td>
                         <td>
                             <span v-if="totalSelected > 0">Spolu</span>
                         </td>
@@ -118,7 +109,7 @@ help:
                 </a>
                 <a href="{{ site.github.url }}/food.html" class="btn btn-secondary" data-toggle="tooltip"
                    title="Týmto tlačidlom sa vrátite späť.">
-                    <i class="fa fa-times"></i>
+                    <i class="fa fa-ban"></i>
                     Zrušiť
                 </a>
             </div>

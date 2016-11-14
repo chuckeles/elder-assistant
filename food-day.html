@@ -3,8 +3,7 @@ title: Objednať obed na zajtra
 help:
     title: Pomoc pri objednávaní jedla
     content: >
-        Vyberte si z jedálneho lístka zajtra na obed. Vyberte si jedlo a počet porcií a potom
-        potvrďte svoju voľbu.
+        Vyberte si z jedálneho lístka obed na najbližší pracovný deň, potom potvrďte svoju voľbu.
 ---
 
 <!-- ordering lunch for the following day -->
@@ -21,26 +20,19 @@ help:
                 <thead class="thead-default">
                     <tr>
                         <th>Jedlo</th>
-                        <th>Počet porcií</th>
                         <th>Cena</th>
                         <th>Zmazať jedlo</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-if="selected.length === 0">
-                        <td colspan="4" class="text-xs-center">
+                        <td colspan="3" class="text-xs-center">
                             <em>Nemáte vybraný žiaden obed.</em>
                         </td>
                     </tr>
                     <tr v-for="food in selected">
                         {% raw %}
                         <td>{{ food.name }}</td>
-                        <td>
-                            <div class="input-group input-group-sm">
-                                <span class="input-group-addon">&times;</span>
-                                <input class="form-control short-input" type="number" v-model="food.amount" min="1">
-                            </div>
-                        </td>
                         <td>{{ food.amount * food.price | price }}&euro;</td>
                         <td>
                             <button class="btn btn-secondary btn-sm" @click="remove(food)">
@@ -53,7 +45,7 @@ help:
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="1" class="text-xs-center">
+                        <td class="text-xs-center">
                             <button class="btn btn-secondary" data-toggle="modal" data-target="#food-select-modal">
                                 <i class="fa fa-plus"></i>
                                 Pridať jedlo
@@ -67,7 +59,6 @@ help:
                             <span v-if="selected.length > 0">{{ totalPrice | price }}&euro;</span>
                             {% endraw %}
                         </td>
-                        <td></td>
                     </tr>
                 </tfoot>
             </table>
@@ -91,7 +82,7 @@ help:
                 </a>
                 <a href="{{ site.github.url }}/food.html" class="btn btn-secondary" data-toggle="tooltip"
                    title="Týmto tlačidlom sa vrátite späť.">
-                    <i class="fa fa-times"></i>
+                    <i class="fa fa-ban"></i>
                     Zrušiť
                 </a>
             </div>

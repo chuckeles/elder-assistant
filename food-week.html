@@ -39,7 +39,7 @@ help:
                                 Pridať jedlo
                             </button>
                         </td>
-                        <td colspan="3">
+                        <td colspan="3" class="text-xs-center">
                             <em v-if="day.food.length === 0">
                                 Na tento deň nemáte vybrané žiadne jedlo.
                             </em>
@@ -62,6 +62,26 @@ help:
                         </td>
                     </tr>
                     {% endraw %}
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>Sobota</td>
+                        <td colspan="4" class="text-xs-center">
+                            <em>
+                                V tento deň sa nevarí.
+                            </em>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>Nedeľa</td>
+                        <td colspan="4" class="text-xs-center">
+                            <em>
+                                V tento deň sa nevarí.
+                            </em>
+                        </td>
+                    </tr>
                 </tbody>
                 <tfoot>
                     <tr>

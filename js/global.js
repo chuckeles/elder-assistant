@@ -14,7 +14,7 @@ $(function() {
         $('#text-minus').click(function () {
             var $html = $('html');
             var fontSize = $html.css('font-size');
-            $html.css('font-size', (parseInt(fontSize) - 2) + 'px');
+            $html.css('font-size', (Math.max(14, parseInt(fontSize) - 2)) + 'px');
         });
     });
 });

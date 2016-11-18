@@ -1,0 +1,102 @@
+---
+---
+
+
+$white: #fffffc;
+$red: #d72638;
+$green: #1b998b;
+$dark: #212d40;
+
+body {
+    background-color: $white;
+    color: $dark;
+}
+
+.bottom-nav {
+    background-color: lighten($red, 35%);
+    color: $dark;
+
+    .navbar-nav a.nav-link {
+        color: $dark;
+    }
+}
+
+.btn.btn-secondary {
+    background-color: $white;
+    color: $dark;
+    border-color: $red;
+
+    &:hover {
+        background-color: lighten($red, 30%);
+        color: $dark;
+        border-color: $red;
+    }
+
+    &:focus,
+    &:active {
+        background-color: lighten($red, 20%);
+        color: $dark;
+        border-color: $red;
+    }
+
+    &.disabled {
+        background-color: darken($white, 10%);
+    }
+}
+
+.btn.btn-primary {
+    background-color: $red;
+    color: $dark;
+    border-color: darken($red, 20%);
+
+    &:hover {
+        background-color: lighten($red, 10%);
+        color: $dark;
+        border-color: $red;
+    }
+
+    &:focus,
+    &:active {
+        background-color: darken($red, 10%);
+        color: $dark;
+        border-color: $red;
+    }
+
+    &.disabled {
+        background-color: desaturate($red, 10%);
+    }
+}
+
+.table .thead-default th {
+    background-color: lighten($green, 30%);
+    border-bottom-color: lighten($green, 30%);
+    color: $dark;
+}
+
+.popover {
+    border-color: $red;
+    padding: 0;
+
+    .popover-title {
+        background-color: lighten($red, 35%);
+        border: none;
+    }
+}
+
+.input-group-addon {
+    background-color: lighten($red, 35%);
+    border-color: $red;
+}
+
+.form-control {
+    border-color: $red;
+}
+
+.fa.fa-ban,
+.fa.fa-times {
+    color: $red;
+}
+
+.fa.fa-check {
+    color: $green;
+}

@@ -59,6 +59,9 @@ new Vue({
         },
         removeFromCart: function (product) {
             this.shoppingCart.splice(this.shoppingCart.indexOf(product), 1);
+        },
+        saveSelection: function () {
+            localStorage.setItem('selectedMedicine', JSON.stringify(this.shoppingCart));
         }
     },
     filters: {

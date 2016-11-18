@@ -1,0 +1,85 @@
+---
+title: Zhrnutie objednávky
+help:
+    title: Kontrola objednávky
+    content: >
+        Skontrolujte si, prosím, detaily objednávky. Ak niečo nesedí, vráťte sa naspäť a upravte vašu voľbu.
+        Keď ste si istý, že všetky informácie sú v poriadku, stlačte tlačidlo potvrdiť.
+---
+
+<div id="medicine-summary-container">
+    <div class="row gap-bottom">
+        <div class="col-xs text-xs-center">
+            <a href="{{ site.github.url }}/food-address-day.html" class="btn btn-secondary">Späť</a>
+        </div>
+    </div>
+
+    <div class="row gap-bottom">
+        <div class="col-xs">
+            <table class="table">
+                <thead class="thead-default">
+                <tr>
+                    <th>Názov</th>
+                    <th>Doplatok</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="product in shoppingCart">
+                        {% raw %}
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.amount * product.price | price }}&euro;</td>
+                        {% endraw %}
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td><strong>Spolu</strong></td>
+                        {% raw %}
+                        <td><strong>{{ totalPrice | price }}&euro;</strong></td>
+                        {% endraw %}
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <h3>Adresa</h3>
+
+    {% raw %}
+    <div class="row">
+        <div class="col-xs-2">Mesto</div>
+        <div class="col-xs-10">{{ address.mesto }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2">PSČ</div>
+        <div class="col-xs-10">{{ address.psc }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2">Ulica a čislo domu</div>
+        <div class="col-xs-10">{{ address.address }}</div>
+    </div>
+    <div class="row gap-bottom">
+        <div class="col-xs-2">Telefónne číslo</div>
+        <div class="col-xs-10">{{ address.telephone }}</div>
+    </div>
+    {% endraw %}
+
+    <div class="row">
+        <div class="col-xs text-xs-center">
+            <div class="btn-group btn-group-lg">
+                <a href="{{ site.github.url }}/medicine-success.html" class="btn btn-primary" data-toggle="tooltip"
+                   title="Týmto tlačidlom potvrdíte vašu objednávku.">
+                    <i class="fa fa-check"></i>
+                    Potvrdiť
+                </a>
+                <a href="{{ site.github.url }}/index.html" class="btn btn-secondary" data-toggle="tooltip"
+                   title="Týmto tlačidlom zrušíte objednávku a vrátite sa na domovskú stránku.">
+                    <i class="fa fa-times"></i>
+                    Zrušiť
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ site.github.url }}/js/medicine-summary.js"></script>

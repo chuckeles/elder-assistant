@@ -51,6 +51,10 @@ help:
                                 <i class="fa fa-shopping-cart"></i>
                                 Pridať
                             </button>
+                            <span v-if="addedToCart === product">
+                                <i class="fa fa-check"></i>
+                                Pridané do košíka na spodu stránky
+                            </span>
                         </td>
                     </tr>
                     {% endraw %}

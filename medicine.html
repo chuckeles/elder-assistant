@@ -35,24 +35,28 @@ help:
         <div class="col-xs">
             <table class="table">
                 <thead class="thead-default">
-                <tr>
-                    <th>Názov</th>
-                    <th>Doplatok</th>
-                    <th>Pridať do košíka</th>
-                </tr>
+                    <tr>
+                        <th>Názov</th>
+                        <th>Doplatok</th>
+                        <th>Pridať do košíka</th>
+                    </tr>
                 </thead>
                 <tbody>
                 {% raw %}
-                <tr v-for="product in filteredShop">
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.price | price }}&euro;</td>
-                    <td>
-                        <button class="btn btn-secondary btn-sm" @click="addToCart(product)">
-                            <i class="fa fa-shopping-cart"></i>
-                            Pridať
-                        </button>
-                    </td>
-                </tr>
+                    <tr v-for="product in filteredShop">
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.price | price }}&euro;</td>
+                        <td>
+                            <button class="btn btn-secondary btn-sm" @click="addToCart(product)">
+                                <i class="fa fa-shopping-cart"></i>
+                                Pridať
+                            </button>
+                            <span v-if="addedToCart === product">
+                                <i class="fa fa-check"></i>
+                                Pridané do košíka na spodu stránky
+                            </span>
+                        </td>
+                    </tr>
                 {% endraw %}
                 </tbody>
             </table>
@@ -65,42 +69,35 @@ help:
             <table class="table">
                 {% raw %}
                 <thead class="thead-default">
-                <tr>
-                    <th>Názov</th>
-                    <th>Množstvo</th>
-                    <th>Doplatok</th>
-                    <th>Odstrániť z košíka</th>
-                </tr>
+                    <tr>
+                        <th>Názov</th>
+                        <th>Doplatok</th>
+                        <th>Odstrániť z košíka</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr v-if="shoppingCart.length === 0">
-                    <td colspan="4" class="text-xs-center">
-                        <em>Váš košík je prázdny.</em>
-                    </td>
-                </tr>
-                <tr v-for="product in shoppingCart">
-                    <td>{{ product.name }}</td>
-                    <td>
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-addon">&times;</span>
-                            <input class="form-control short-input" type="number" v-model="product.amount" min="1">
-                        </div>
-                    </td>
-                    <td>{{ product.price * product.amount | price }}&euro;</td>
-                    <td>
-                        <button class="btn btn-secondary btn-sm" @click="removeFromCart(product)">
-                            <i class="fa fa-trash"></i>
-                            Odstrániť
-                        </button>
-                    </td>
-                </tr>
+                    <tr v-if="shoppingCart.length === 0">
+                        <td colspan="3" class="text-xs-center">
+                            <em>Váš košík je prázdny.</em>
+                        </td>
+                    </tr>
+                    <tr v-for="product in shoppingCart">
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.price * product.amount | price }}&euro;</td>
+                        <td>
+                            <button class="btn btn-secondary btn-sm" @click="removeFromCart(product)">
+                                <i class="fa fa-trash"></i>
+                                Odstrániť
+                            </button>
+                        </td>
+                    </tr>
                 </tbody>
                 <tfoot v-if="shoppingCart.length > 0">
-                <tr>
-                    <td colspan="2">Celkový doplatok</td>
-                    <td>{{ totalPrice | price }}&euro;</td>
-                    <td></td>
-                </tr>
+                    <tr>
+                        <td>Celkový doplatok</td>
+                        <td>{{ totalPrice | price }}&euro;</td>
+                        <td></td>
+                    </tr>
                 </tfoot>
                 {% endraw %}
             </table>

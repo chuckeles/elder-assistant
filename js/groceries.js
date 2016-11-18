@@ -17,12 +17,13 @@ var shop = [
     { name: 'Maslo', price: 1.26 }
 ];
 
-var app = new Vue({
+new Vue({
     el: '#groceries-container',
     data: {
         shoppingCart: shoppingCart,
         shop: shop,
-        filter: ''
+        filter: '',
+        addedToCart: null
     },
     computed: {
         filteredShop: function () {
@@ -47,7 +48,14 @@ var app = new Vue({
                 name: product.name,
                 price: product.price,
                 amount: 1
-            })
+            });
+            this.addedToCart = product;
+            var self = this;
+            setTimeout(function () {
+                if (self.addedToCart === product) {
+                    self.addedToCart = null;
+                }
+            }, 3000);
         },
         removeFromCart: function (product) {
             this.shoppingCart.splice(this.shoppingCart.indexOf(product), 1);

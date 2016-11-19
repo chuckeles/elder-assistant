@@ -1,6 +1,6 @@
 $(function () {
-    var address = JSON.parse(localStorage.address);
-    if (address) {
+    if (localStorage.address) {
+        var address = JSON.parse(localStorage.address);
         $('#adresa').val(address.address);
         $('#mesto').val(address.mesto);
         $('#psc').val(address.psc);

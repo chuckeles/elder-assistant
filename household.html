@@ -62,7 +62,7 @@ help:
         </div>
 
         <div class="row gap-bottom">
-            <div class="col-xs text-xs-center">
+            <div class="col-xs text-xs-center hidden-sm-down">
                 <div class="btn-group btn-group-lg">
                     <a href="#" class="btn btn-primary" id="household-submit-button" data-toggle="tooltip"
                        title="Týmto tlačidlom potvrdíte záujem o upratanie u Vás doma.">
@@ -75,6 +75,18 @@ help:
                         Zrušiť
                     </a>
                 </div>
+            </div>
+            <div class="col-xs text-xs-center hidden-md-up">
+                <a href="#" class="btn btn-primary" id="household-submit-button" data-toggle="tooltip"
+                   title="Týmto tlačidlom potvrdíte záujem o upratanie u Vás doma.">
+                    <i class="fa fa-check"></i>
+                    Potvrdiť
+                </a>
+                <a href="{{ site.github.url }}/index.html" class="btn btn-secondary" data-toggle="tooltip"
+                   title="Týmto tlačidlom vymažete zadané údaje a vrátite sa naspäť na úvodnú stránku.">
+                    <i class="fa fa-times"></i>
+                    Zrušiť
+                </a>
             </div>
         </div>
     </div>

@@ -16,30 +16,32 @@ help:
 
     <div class="row gap-bottom">
         <div class="col-xs">
-            <table class="table">
-                <thead class="thead-default">
-                <tr>
-                    <th>Názov</th>
-                    <th>Doplatok</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="product in shoppingCart">
-                        {% raw %}
-                        <td>{{ product.name }}</td>
-                        <td>{{ product.amount * product.price | price }}&euro;</td>
-                        {% endraw %}
-                    </tr>
-                </tbody>
-                <tfoot>
+            <div class="table-scroll">
+                <table class="table">
+                    <thead class="thead-default">
                     <tr>
-                        <td><strong>Spolu</strong></td>
-                        {% raw %}
-                        <td><strong>{{ totalPrice | price }}&euro;</strong></td>
-                        {% endraw %}
+                        <th>Názov</th>
+                        <th>Doplatok</th>
                     </tr>
-                </tfoot>
-            </table>
+                    </thead>
+                    <tbody>
+                        <tr v-for="product in shoppingCart">
+                            {% raw %}
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.amount * product.price | price }}&euro;</td>
+                            {% endraw %}
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td><strong>Spolu</strong></td>
+                            {% raw %}
+                            <td><strong>{{ totalPrice | price }}&euro;</strong></td>
+                            {% endraw %}
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -47,20 +49,20 @@ help:
 
     {% raw %}
     <div class="row">
-        <div class="col-xs-2">Mesto</div>
-        <div class="col-xs-10">{{ address.mesto }}</div>
+        <div class="col-md-4 col-xs-12"><strong>Mesto</strong></div>
+        <div class="col-md-8 offset-md-0 col-xs-11 offset-xs-1">{{ address.mesto }}</div>
     </div>
     <div class="row">
-        <div class="col-xs-2">PSČ</div>
-        <div class="col-xs-10">{{ address.psc }}</div>
+        <div class="col-md-4 col-xs-12"><strong>PSČ</strong></div>
+        <div class="col-md-8 offset-md-0 col-xs-11 offset-xs-1">{{ address.psc }}</div>
     </div>
     <div class="row">
-        <div class="col-xs-2">Ulica a čislo domu</div>
-        <div class="col-xs-10">{{ address.address }}</div>
+        <div class="col-md-4 col-xs-12"><strong>Ulica a čislo domu</strong></div>
+        <div class="col-md-8 offset-md-0 col-xs-11 offset-xs-1">{{ address.address }}</div>
     </div>
     <div class="row gap-bottom">
-        <div class="col-xs-2">Telefónne číslo</div>
-        <div class="col-xs-10">{{ address.telephone }}</div>
+        <div class="col-md-4 col-xs-12"><strong>Telefónne číslo</strong></div>
+        <div class="col-md-8 offset-md-0 col-xs-11 offset-xs-1">{{ address.telephone }}</div>
     </div>
     {% endraw %}
 

@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    padding-bottom: 80px;
+    padding-bottom: 10rem;
 }
 
 @for $i from 1 through 6 {
@@ -30,9 +30,15 @@ body {
     font-size: 1.4rem;
     padding: 0;
 
-    .navbar-nav .nav-item {
-        float: none;
-        display: inline-block;
+    .navbar-nav {
+        white-space: nowrap;
+        overflow: auto;
+        padding: .6rem 7.5rem;
+
+        .nav-item {
+            float: none;
+            display: inline-block;
+        }
     }
 }
 
@@ -57,4 +63,8 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.15);
     width: 100%;
     height: 70vh;
+}
+
+.table-scroll {
+    overflow: auto;
 }

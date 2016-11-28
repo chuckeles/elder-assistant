@@ -16,57 +16,59 @@ help:
     </div>
     <div class="row gap-bottom">
         <div class="col-xs">
-            <table class="table">
-                <thead class="thead-default">
-                    <tr>
-                        <th>Jedlo</th>
-                        <th>Cena</th>
-                        <th>Zmazať jedlo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-if="selected.length === 0">
-                        <td colspan="3" class="text-xs-center">
-                            <em>Nemáte vybraný žiaden obed.</em>
-                        </td>
-                    </tr>
-                    <tr v-for="food in selected">
-                        {% raw %}
-                        <td>{{ food.name }}</td>
-                        <td>{{ food.amount * food.price | price }}&euro;</td>
-                        <td>
-                            <button class="btn btn-secondary btn-sm" @click="remove(food)">
-                                <i class="fa fa-trash"></i>
-                                Zmazať
-                            </button>
-                        </td>
-                        {% endraw %}
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td class="text-xs-center">
-                            <button class="btn btn-secondary" data-toggle="modal" data-target="#food-select-modal">
-                                <i class="fa fa-plus"></i>
-                                Pridať jedlo
-                            </button>
-                        </td>
-                        <td>
-                            <span v-if="selected.length > 0">Spolu</span>
-                        </td>
-                        <td>
+            <div class="table-scroll">
+                <table class="table">
+                    <thead class="thead-default">
+                        <tr>
+                            <th>Jedlo</th>
+                            <th>Cena</th>
+                            <th>Zmazať jedlo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-if="selected.length === 0">
+                            <td colspan="3" class="text-xs-center">
+                                <em>Nemáte vybraný žiaden obed.</em>
+                            </td>
+                        </tr>
+                        <tr v-for="food in selected">
                             {% raw %}
-                            <span v-if="selected.length > 0">{{ totalPrice | price }}&euro;</span>
+                            <td>{{ food.name }}</td>
+                            <td>{{ food.amount * food.price | price }}&euro;</td>
+                            <td>
+                                <button class="btn btn-secondary btn-sm" @click="remove(food)">
+                                    <i class="fa fa-trash"></i>
+                                    Zmazať
+                                </button>
+                            </td>
                             {% endraw %}
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="text-xs-center">
+                                <button class="btn btn-secondary" data-toggle="modal" data-target="#food-select-modal">
+                                    <i class="fa fa-plus"></i>
+                                    Pridať jedlo
+                                </button>
+                            </td>
+                            <td>
+                                <span v-if="selected.length > 0">Spolu</span>
+                            </td>
+                            <td>
+                                {% raw %}
+                                <span v-if="selected.length > 0">{{ totalPrice | price }}&euro;</span>
+                                {% endraw %}
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-xs text-xs-center">
+        <div class="col-xs text-xs-center hidden-sm-down">
             <div class="btn-group btn-group-lg">
                 <a href="#food-day-container" class="btn btn-primary disabled" v-if="selected.length === 0">
                     <i class="fa fa-cutlery"></i>
@@ -86,6 +88,25 @@ help:
                     Zrušiť
                 </a>
             </div>
+        </div>
+        <div class="col-xs text-xs-center hidden-md-up">
+            <a href="#food-day-container" class="btn btn-primary disabled" v-if="selected.length === 0">
+                <i class="fa fa-cutlery"></i>
+                Nemáte vybraný žiaden obed
+            </a>
+            <a href="{{ site.github.url }}/food-address-day.html" class="btn btn-primary" id="food-day-submit-button" data-toggle="tooltip"
+               title="Týmto tlačidlom potvrdíte, že si chcete objednať vybrané jedlo na zajtra. Na ďalšej obrazovke budete môcť zadať vašu adresu."
+               v-show="selected.length > 0" @click="saveSelection">
+                <i class="fa fa-cutlery"></i>
+                {% raw %}
+                Potvrdiť a objednať za {{ totalPrice | price }}&euro;
+                {% endraw %}
+            </a>
+            <a href="{{ site.github.url }}/food.html" class="btn btn-secondary" data-toggle="tooltip"
+               title="Týmto tlačidlom sa vrátite späť.">
+                <i class="fa fa-ban"></i>
+                Zrušiť
+            </a>
         </div>
     </div>
 

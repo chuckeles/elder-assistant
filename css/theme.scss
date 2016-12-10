@@ -2,7 +2,7 @@
 ---
 
 
-$white: #fffffc;
+$white: #fdfdfd;
 $red: #d72638;
 $green: #1b998b;
 $dark: #212d40;
@@ -67,6 +67,13 @@ body {
 
 .form-control {
     border-color: $red;
+    box-shadow: inset 0 .05rem .4rem rgba(0, 0, 0, .2);
+
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: darken($red, 20%);
+    }
 }
 
 .fa.fa-ban,

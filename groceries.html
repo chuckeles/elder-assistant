@@ -13,7 +13,7 @@ help:
 <div id="groceries-container">
     <div class="row gap-bottom">
         <div class="col-xs text-xs-center">
-            <a href="{{ site.github.url }}/index.html" class="btn btn-secondary">Späť</a>
+            <a href="{{ site.github.url }}/index.html" class="btn btn-secondary btn-block btn-lg btn-huge"><i class="fa fa-ban"></i> Naspäť</a>
         </div>
     </div>
 
@@ -119,12 +119,12 @@ help:
         <div class="col-xs text-xs-center hidden-sm-down">
             <div class="btn-group btn-group-lg">
                 {% raw %}
-                <a href="#groceries-search-input" class="btn btn-primary disabled"
+                <a href="#groceries-search-input" class="btn btn-secondary disabled"
                    v-if="shoppingCart.length === 0">
                     <i class="fa fa-shopping-cart"></i>
                     Váš košík je prázdny
                 </a>
-                <a href="#" class="btn btn-primary" id="groceries-submit-button" data-toggle="tooltip"
+                <a href="#" class="btn btn-secondary" id="groceries-submit-button" data-toggle="tooltip"
                    title="Týmto tlačidlom potvrdíte, že máte v košíku všetky potraviny, ktoré si chcete objednať ku vám domov."
                    v-show="shoppingCart.length > 0">
                     <i class="fa fa-check"></i>
@@ -140,12 +140,12 @@ help:
         </div>
         <div class="col-xs text-xs-center hidden-md-up">
             {% raw %}
-            <a href="#groceries-search-input" class="btn btn-primary disabled"
+            <a href="#groceries-search-input" class="btn btn-secondary disabled"
                v-if="shoppingCart.length === 0">
                 <i class="fa fa-shopping-cart"></i>
                 Váš košík je prázdny
             </a>
-            <a href="#" class="btn btn-primary" id="groceries-submit-button" data-toggle="tooltip"
+            <a href="#" class="btn btn-secondary" id="groceries-submit-button" data-toggle="tooltip"
                title="Týmto tlačidlom potvrdíte, že máte v košíku všetky potraviny, ktoré si chcete objednať ku vám domov."
                v-show="shoppingCart.length > 0">
                 <i class="fa fa-check"></i>

@@ -11,7 +11,7 @@ help:
 <div id="food-day-container">
     <div class="row gap-bottom">
         <div class="col-xs text-xs-center">
-            <a href="{{ site.github.url }}/food.html" class="btn btn-secondary">Späť</a>
+            <a href="{{ site.github.url }}/food.html" class="btn btn-secondary btn-block btn-lg btn-huge"><i class="fa fa-ban"></i> Naspäť</a>
         </div>
     </div>
     <div class="row gap-bottom">
@@ -70,11 +70,11 @@ help:
     <div class="row">
         <div class="col-xs text-xs-center hidden-sm-down">
             <div class="btn-group btn-group-lg">
-                <a href="#food-day-container" class="btn btn-primary disabled" v-if="selected.length === 0">
+                <a href="#food-day-container" class="btn btn-secondary disabled" v-if="selected.length === 0">
                     <i class="fa fa-cutlery"></i>
                     Nemáte vybraný žiaden obed
                 </a>
-                <a href="{{ site.github.url }}/food-address-day.html" class="btn btn-primary" id="food-day-submit-button" data-toggle="tooltip"
+                <a href="{{ site.github.url }}/food-address-day.html" class="btn btn-secondary" id="food-day-submit-button" data-toggle="tooltip"
                    title="Týmto tlačidlom potvrdíte, že si chcete objednať vybrané jedlo na zajtra. Na ďalšej obrazovke budete môcť zadať vašu adresu."
                    v-show="selected.length > 0" @click="saveSelection">
                     <i class="fa fa-cutlery"></i>
@@ -90,11 +90,11 @@ help:
             </div>
         </div>
         <div class="col-xs text-xs-center hidden-md-up">
-            <a href="#food-day-container" class="btn btn-primary disabled" v-if="selected.length === 0">
+            <a href="#food-day-container" class="btn btn-secondary disabled" v-if="selected.length === 0">
                 <i class="fa fa-cutlery"></i>
                 Nemáte vybraný žiaden obed
             </a>
-            <a href="{{ site.github.url }}/food-address-day.html" class="btn btn-primary" id="food-day-submit-button" data-toggle="tooltip"
+            <a href="{{ site.github.url }}/food-address-day.html" class="btn btn-secondary" id="food-day-submit-button" data-toggle="tooltip"
                title="Týmto tlačidlom potvrdíte, že si chcete objednať vybrané jedlo na zajtra. Na ďalšej obrazovke budete môcť zadať vašu adresu."
                v-show="selected.length > 0" @click="saveSelection">
                 <i class="fa fa-cutlery"></i>

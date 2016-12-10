@@ -22,7 +22,7 @@ body {
 }
 
 .btn.btn-secondary {
-    background-color: $white;
+    background-color: lighten($red, 40%);
     color: $dark;
     border-color: $red;
 
@@ -40,30 +40,7 @@ body {
     }
 
     &.disabled {
-        background-color: darken($white, 10%);
-    }
-}
-
-.btn.btn-primary {
-    background-color: $red;
-    color: $dark;
-    border-color: darken($red, 20%);
-
-    &:hover {
-        background-color: lighten($red, 10%);
-        color: $dark;
-        border-color: $red;
-    }
-
-    &:focus,
-    &:active {
-        background-color: darken($red, 10%);
-        color: $dark;
-        border-color: $red;
-    }
-
-    &.disabled {
-        background-color: desaturate($red, 10%);
+        opacity: .6;
     }
 }
 

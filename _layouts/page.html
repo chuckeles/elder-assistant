@@ -27,6 +27,48 @@
     </head>
     <body>
         <div class="container" id="page-container">
+            <nav class="navbar navbar-fixed-top navbar-light top-nav hidden-md-up">
+                <button class="navbar-toggler btn btn-secondary" data-toggle="collapse" data-target="#top-nav"></button>
+                <div class="collapse" id="top-nav">
+                    <div class="nav nav-pills nav-stacked">
+                        {% if page.homeLink %}
+                        <a href="{{ site.github.url }}/index.html" class="nav-item nav-link">
+                            <i class="fa fa-home"></i>
+                            Domov
+                        </a>
+                        {% endif %}
+                        <a href="{{ site.github.url }}/food.html" class="nav-item nav-link">
+                            <i class="fa fa-cutlery"></i>
+                            Jedlo
+                        </a>
+                        <a href="{{ site.github.url }}/groceries.html" class="nav-item nav-link">
+                            <i class="fa fa-shopping-basket"></i>
+                            Potraviny
+                        </a>
+                        <a href="{{ site.github.url }}/transport.html" class="nav-item nav-link">
+                            <i class="fa fa-car"></i>
+                            Odvoz
+                        </a>
+                        <a href="{{ site.github.url }}/household.html" class="nav-item nav-link">
+                            <i class="fa fa-home"></i>
+                            Upratať
+                        </a>
+                        <a href="{{ site.github.url }}/repair.html" class="nav-item nav-link">
+                            <i class="fa fa-wrench"></i>
+                            Opraviť
+                        </a>
+                        <a href="{{ site.github.url }}/doctor.html" class="nav-item nav-link">
+                            <i class="fa fa-stethoscope"></i>
+                            Lekár / Lieky
+                        </a>
+                        <a href="{{ site.github.url }}/office.html" class="nav-item nav-link">
+                            <i class="fa fa-file-text"></i>
+                            Úrady
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
             <div class="row">
                 <div class="col-xs">
                     <h1 class="page-title">{{ page.title }}</h1>

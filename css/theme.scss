@@ -12,6 +12,21 @@ body {
     color: $dark;
 }
 
+.top-nav {
+    .navbar-toggler {
+        margin: .6rem;
+    }
+
+    .nav {
+        background-color: $white;
+        color: $red;
+
+        a.nav-link {
+            color: $red;
+        }
+    }
+}
+
 .bottom-nav {
     background-color: lighten($red, 35%);
     color: $dark;

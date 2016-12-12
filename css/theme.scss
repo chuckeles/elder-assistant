@@ -20,6 +20,7 @@ body {
     .nav {
         background-color: $white;
         color: $red;
+        border: 1px solid $dark;
 
         a.nav-link {
             color: $red;
